@@ -1,0 +1,692 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AR65_EXEC	Makefile	/^AR65_EXEC = $(CC65_PREFIX)\/ar65$/;"	m
+AR65_EXEC	Makefile	/^AR65_EXEC = ar65$/;"	m
+ASSERT	emu/include/base.h	95;"	d
+ASSERT_ASSUMPTION	emu/include/base.h	122;"	d
+ASSERT_ASSUMPTION	emu/include/base.h	124;"	d
+ASSERT_CHECK	emu/include/base.h	109;"	d
+ASSERT_CHECK	emu/include/base.h	111;"	d
+ASSERT_ERROR_REACTION	emu/include/base.h	115;"	d
+ASSERT_ERROR_REACTION	emu/include/base.h	117;"	d
+BASELIB	Makefile	/^BASELIB = sim6502.lib$/;"	m
+BGREEN	emu/include/base.h	22;"	d
+BIN_DIR	Makefile	/^BIN_DIR = bin$/;"	m
+BLACK	emu/include/base.h	12;"	d
+BLUE	emu/include/base.h	16;"	d
+BOLD	emu/include/base.h	31;"	d
+BP_L1_IDX	emu/shell.c	152;"	d	file:
+BP_L2_IDX	emu/shell.c	151;"	d	file:
+BP_PRESENT	emu/shell.c	153;"	d	file:
+BP_SET_NOT_PRESENT	emu/shell.c	155;"	d	file:
+BP_SET_PRESENT	emu/shell.c	154;"	d	file:
+BRBLACK	emu/include/base.h	20;"	d
+BRBLUE	emu/include/base.h	24;"	d
+BRCYAN	emu/include/base.h	26;"	d
+BRMAGENTA	emu/include/base.h	25;"	d
+BRRED	emu/include/base.h	21;"	d
+BRWHTIE	emu/include/base.h	27;"	d
+BRYELLOW	emu/include/base.h	23;"	d
+BUILD_DIR	Makefile	/^BUILD_DIR = build$/;"	m
+CA65_EXEC	Makefile	/^CA65_EXEC = $(CC65_PREFIX)\/ca65$/;"	m
+CA65_EXEC	Makefile	/^CA65_EXEC = ca65$/;"	m
+CC65_EXEC	Makefile	/^CC65_EXEC = $(CC65_PREFIX)\/cc65$/;"	m
+CC65_EXEC	Makefile	/^CC65_EXEC = cc65$/;"	m
+CC_ARCH_FLAG	Makefile	/^CC_ARCH_FLAG = -march=native$/;"	m
+CC_COMMAND	Makefile	/^CC_COMMAND = $(CC_EXEC) $(CC_FLAGS)$/;"	m
+CC_COMMON_DEFINES	Makefile	/^CC_COMMON_DEFINES := GNU_SOURCE ASSERT_RECOVER UNREACHABLE_RECOVER$/;"	m
+CC_COMMON_FLAGS	Makefile	/^CC_COMMON_FLAGS = $(CC_WARNING_FLAGS) $(CC_STD_FLAG) $(CC_DEFINES_FLAGS) $(CC_INCLUDE_FLAG) $(CC_ARCH_FLAG)$/;"	m
+CC_DEBUG_DEFINES	Makefile	/^CC_DEBUG_DEFINES := DEBUG_ENABLE$/;"	m
+CC_DEBUG_FLAGS	Makefile	/^CC_DEBUG_FLAGS = $(CC_COMMON_FLAGS) $(CC_SANITIZER_FLAGS) -g -O1 -fno-inline -fno-omit-frame-pointer -fno-optimize-sibling-calls$/;"	m
+CC_DEFINES	Makefile	/^CC_DEFINES = $(CC_COMMON_DEFINES) $(CC_$(MODE)_DEFINES)$/;"	m
+CC_DEFINES_FLAGS	Makefile	/^CC_DEFINES_FLAGS = $(addprefix -D,$(CC_DEFINES))$/;"	m
+CC_EXEC	Makefile	/^CC_EXEC = $($(COMPILER)_EXEC)$/;"	m
+CC_FLAGS	Makefile	/^CC_FLAGS = $(CC_$(MODE)_FLAGS)$/;"	m
+CC_INCLUDE_FLAG	Makefile	/^CC_INCLUDE_FLAG = -I$(EMU_INCLUDE_DIR)$/;"	m
+CC_LIB_FLAGS	Makefile	/^CC_LIB_FLAGS = $(addprefix -l,$(EMU_LIBS))$/;"	m
+CC_LTO_FLAG	Makefile	/^CC_LTO_FLAG = -flto$/;"	m
+CC_OPT_DEFINES	Makefile	/^CC_OPT_DEFINES :=$/;"	m
+CC_OPT_FLAGS	Makefile	/^CC_OPT_FLAGS = $(CC_COMMON_FLAGS) $(CC_SANITIZER_FLAGS) -g -O3$/;"	m
+CC_RELEASE_DEFINES	Makefile	/^CC_RELEASE_DEFINES := ASSERT_ASSUME UNREACHABLE_ASSUME DISABLE_CYCLECHECK$/;"	m
+CC_RELEASE_FLAGS	Makefile	/^CC_RELEASE_FLAGS = $(CC_COMMON_FLAGS) $(CC_LTO_FLAG) -g -O3$/;"	m
+CC_SANITIZER_FLAGS	Makefile	/^CC_SANITIZER_FLAGS = $(COMMON_SANITIZER_FLAGS) $($(COMPILER)_SANITIZER_FLAGS)$/;"	m
+CC_STD_FLAG	Makefile	/^CC_STD_FLAG = -std=gnu11$/;"	m
+CC_WARNING_FLAGS	Makefile	/^CC_WARNING_FLAGS = $($(COMPILER)_WARNING_FLAGS)$/;"	m
+CLANG_EXEC	Makefile	/^CLANG_EXEC = clang$/;"	m
+CLANG_IGNORED_WARNINGS	Makefile	/^CLANG_IGNORED_WARNINGS = reserved-id-macro                 \\$/;"	m
+CLANG_WARNING_FLAGS	Makefile	/^CLANG_WARNING_FLAGS = -Weverything $(addprefix -Wno-,$(CLANG_IGNORED_WARNINGS))$/;"	m
+CLD_handler	emu/mos6502/mos6502.c	/^CLD_handler(mos6502_t *cpu){$/;"	f
+COLORED	emu/include/base.h	11;"	d
+COMPILER	Makefile	/^COMPILER = GCC$/;"	m
+CONTROLLER_BUTTON_A	emu/include/nes/io_reg.h	/^	CONTROLLER_BUTTON_A = 0,$/;"	e	enum:controller_button
+CONTROLLER_BUTTON_B	emu/include/nes/io_reg.h	/^	CONTROLLER_BUTTON_B = 1,$/;"	e	enum:controller_button
+CONTROLLER_BUTTON_DOWN	emu/include/nes/io_reg.h	/^	CONTROLLER_BUTTON_DOWN = 5,$/;"	e	enum:controller_button
+CONTROLLER_BUTTON_LEFT	emu/include/nes/io_reg.h	/^	CONTROLLER_BUTTON_LEFT = 6,$/;"	e	enum:controller_button
+CONTROLLER_BUTTON_RIGHT	emu/include/nes/io_reg.h	/^	CONTROLLER_BUTTON_RIGHT = 7,$/;"	e	enum:controller_button
+CONTROLLER_BUTTON_SELECT	emu/include/nes/io_reg.h	/^	CONTROLLER_BUTTON_SELECT = 2,$/;"	e	enum:controller_button
+CONTROLLER_BUTTON_START	emu/include/nes/io_reg.h	/^	CONTROLLER_BUTTON_START = 3,$/;"	e	enum:controller_button
+CONTROLLER_BUTTON_UP	emu/include/nes/io_reg.h	/^	CONTROLLER_BUTTON_UP = 4,$/;"	e	enum:controller_button
+CONTROLLER_NBUTTONS	emu/include/nes/io_reg.h	17;"	d
+CYAN	emu/include/base.h	18;"	d
+DEBUG_PRINT	emu/include/base.h	42;"	d
+DEBUG_PRINT	emu/include/base.h	57;"	d
+DEBUG_PRINT	emu/include/base.h	58;"	d
+DISABLE_ASSERT	emu/include/base.h	105;"	d
+DISABLE_UNREACHABLE	emu/include/base.h	142;"	d
+EMU	Makefile	/^EMU = $(BIN_DIR)\/hawknest-$(call lc,$(COMPILER))-$(call lc,$(MODE))$/;"	m
+EMU_BUILD_DIR	Makefile	/^EMU_BUILD_DIR = $(BUILD_DIR)\/emu\/$(call lc,$(COMPILER))\/$(call lc,$(MODE))$/;"	m
+EMU_DEP	Makefile	/^EMU_DEP = $(EMU_OBJ:.o=.d)$/;"	m
+EMU_INCLUDE_DIR	Makefile	/^EMU_INCLUDE_DIR = $(EMU_SRC_DIR)\/include$/;"	m
+EMU_LIBS	Makefile	/^EMU_LIBS = SDL2 readline$/;"	m
+EMU_OBJ	Makefile	/^EMU_OBJ = $(addprefix $(EMU_BUILD_DIR)\/,$(EMU_SRC:.c=.o))$/;"	m
+EMU_SRC	Makefile	/^EMU_SRC :=$/;"	m
+EMU_SRC_DIR	Makefile	/^EMU_SRC_DIR = emu$/;"	m
+ERROR_EXIT	emu/include/base.h	50;"	d
+ERROR_PRINT	emu/include/base.h	43;"	d
+GCC_EXEC	Makefile	/^GCC_EXEC = gcc$/;"	m
+GCC_IGNORED_WARNINGS	Makefile	/^GCC_IGNORED_WARNINGS = packed-bitfield-compat \\$/;"	m
+GCC_WARNING_FLAGS	Makefile	/^GCC_WARNING_FLAGS = -Wall -Wextra $(addprefix -Wno-,$(GCC_IGNORED_WARNINGS))$/;"	m
+GET_HEX_ADDR	emu/shell.c	274;"	d	file:
+GREEN	emu/include/base.h	14;"	d
+HAWKNEST_VERSION_STRING	emu/include/base.h	7;"	d
+INES_MIRRORING_HORIZONTAL	emu/include/ines.h	/^	INES_MIRRORING_HORIZONTAL = 0,$/;"	e	enum:ines_mirroring
+INES_MIRRORING_VERTICAL	emu/include/ines.h	/^	INES_MIRRORING_VERTICAL = 1,$/;"	e	enum:ines_mirroring
+INFO_PRINT	emu/include/base.h	40;"	d
+INTR_IRQ	emu/include/mos6502/mos6502.h	/^	INTR_IRQ = 1,$/;"	e	enum:intr
+INTR_NMI	emu/include/mos6502/mos6502.h	/^	INTR_NMI = 2,$/;"	e	enum:intr
+INTR_NONE	emu/include/mos6502/mos6502.h	/^	INTR_NONE = 0,$/;"	e	enum:intr
+L0001	build/test/add.s	/^L0001:	rts$/;"	l
+L0001	build/test/hello.s	/^L0001:	rts$/;"	l
+L0001	build/test/primes.s	/^L0001:	jsr     incsp4$/;"	l
+L0001	test/add.s	/^L0001:	rts$/;"	l
+L0002	build/test/primes.s	/^L0002:	ldx     #$00$/;"	l
+L0003	build/test/hello.s	/^L0003:$/;"	l
+L0005	build/test/primes.s	/^L0005:	ldy     #$01$/;"	l
+L0006	build/test/primes.s	/^L0006:	ldx     #$00$/;"	l
+L0007	build/test/primes.s	/^L0007:	ldy     #$01$/;"	l
+L0008	build/test/primes.s	/^L0008:	ldy     #$03$/;"	l
+L000F	build/test/primes.s	/^L000F:	jsr     booleq$/;"	l
+L0012	build/test/primes.s	/^L0012:	jsr     incsp2$/;"	l
+L0014	build/test/primes.s	/^L0014:	ldy     #$01$/;"	l
+L0018	build/test/primes.s	/^L0018:$/;"	l
+L001B	build/test/primes.s	/^L001B:$/;"	l
+L001E	build/test/primes.s	/^L001E:	jsr     boolne$/;"	l
+L001F	build/test/primes.s	/^L001F:	lda     #<(L0028)$/;"	l
+L0023	build/test/primes.s	/^L0023:$/;"	l
+L0026	build/test/primes.s	/^L0026:	lda     #<(L0018)$/;"	l
+L0028	build/test/primes.s	/^L0028:$/;"	l
+LD65_CFG	Makefile	/^LD65_CFG = $(LD65_CFG_DIR)\/hawknest.cfg$/;"	m
+LD65_CFG_DIR	Makefile	/^LD65_CFG_DIR = cfg$/;"	m
+LD65_EXEC	Makefile	/^LD65_EXEC = $(CC65_PREFIX)\/ld65$/;"	m
+LD65_EXEC	Makefile	/^LD65_EXEC = ld65$/;"	m
+LDA_handler	emu/mos6502/mos6502.c	/^LDA_handler(mos6502_t *cpu){$/;"	f
+LDX_handler	emu/mos6502/mos6502.c	/^LDX_handler(mos6502_t *cpu){$/;"	f
+LIB	Makefile	/^LIB = $(BIN_DIR)\/hawknest.lib$/;"	m
+LIB_ASMOBJ	Makefile	/^LIB_ASMOBJ = $(addprefix $(LIB_BUILD_DIR)\/,$(patsubst %.s,%.o,$(filter %.s,$(LIB_SRC))))$/;"	m
+LIB_BUILD_DIR	Makefile	/^LIB_BUILD_DIR = $(BUILD_DIR)\/lib$/;"	m
+LIB_CASM	Makefile	/^LIB_CASM = $(addprefix $(LIB_BUILD_DIR)\/,$(patsubst %.c,%.s,$(filter %.c,$(LIB_SRC))))$/;"	m
+LIB_COBJ	Makefile	/^LIB_COBJ = $(LIB_CASM:.s=.o)$/;"	m
+LIB_DEP	Makefile	/^LIB_DEP = $(LIB_OBJ:.o=.d)$/;"	m
+LIB_OBJ	Makefile	/^LIB_OBJ = $(LIB_COBJ) $(LIB_ASMOBJ)$/;"	m
+LIB_SRC	Makefile	/^LIB_SRC :=$/;"	m
+LIB_SRC_DIR	Makefile	/^LIB_SRC_DIR = lib$/;"	m
+LIKELY	emu/include/base.h	62;"	d
+MAGENTA	emu/include/base.h	17;"	d
+MEMBUS_NPAGES	emu/include/membus.h	9;"	d
+MEMBUS_PAGESIZE	emu/include/membus.h	8;"	d
+MMC1_CHR_SWITCHING_4K	emu/include/nes/mmc1.h	/^	MMC1_CHR_SWITCHING_4K = 1,$/;"	e	enum:mmc1_chr_switching
+MMC1_CHR_SWITCHING_8K	emu/include/nes/mmc1.h	/^	MMC1_CHR_SWITCHING_8K = 0,$/;"	e	enum:mmc1_chr_switching
+MMC1_HIGH_PRGROM_FIXED	emu/include/nes/mmc1.h	/^	MMC1_HIGH_PRGROM_FIXED = 1,$/;"	e	enum:mmc1_prgrom_fixation
+MMC1_LOW_PRGROM_FIXED	emu/include/nes/mmc1.h	/^	MMC1_LOW_PRGROM_FIXED = 0,$/;"	e	enum:mmc1_prgrom_fixation
+MMC1_MIRRORING_HORIZONTAL	emu/include/nes/mmc1.h	/^	MMC1_MIRRORING_HORIZONTAL = 3,$/;"	e	enum:mmc1_mirroring
+MMC1_MIRRORING_ONE_SCREEN_NT0	emu/include/nes/mmc1.h	/^	MMC1_MIRRORING_ONE_SCREEN_NT0 = 0,$/;"	e	enum:mmc1_mirroring
+MMC1_MIRRORING_ONE_SCREEN_NT1	emu/include/nes/mmc1.h	/^	MMC1_MIRRORING_ONE_SCREEN_NT1 = 1,$/;"	e	enum:mmc1_mirroring
+MMC1_MIRRORING_VERTICAL	emu/include/nes/mmc1.h	/^	MMC1_MIRRORING_VERTICAL = 2,$/;"	e	enum:mmc1_mirroring
+MMC1_PRGROM_SWITCHING_16K	emu/include/nes/mmc1.h	/^	MMC1_PRGROM_SWITCHING_16K = 1,$/;"	e	enum:mmc1_prgrom_switching
+MMC1_PRGROM_SWITCHING_32K	emu/include/nes/mmc1.h	/^	MMC1_PRGROM_SWITCHING_32K = 0,$/;"	e	enum:mmc1_prgrom_switching
+MODE	Makefile	/^MODE = DEBUG$/;"	m
+MODE_ABS	emu/include/mos6502/mos6502.h	/^	MODE_ABS = 1,     \/\/ Absolute$/;"	e	enum:addr_mode
+MODE_ABSX	emu/include/mos6502/mos6502.h	/^	MODE_ABSX = 2,    \/\/ Absolute, indexed by X$/;"	e	enum:addr_mode
+MODE_ABSY	emu/include/mos6502/mos6502.h	/^	MODE_ABSY = 3,    \/\/ Absolute, indexed by Y$/;"	e	enum:addr_mode
+MODE_ACC	emu/include/mos6502/mos6502.h	/^	MODE_ACC = 4,     \/\/ Accumulator$/;"	e	enum:addr_mode
+MODE_IDXIND	emu/include/mos6502/mos6502.h	/^	MODE_IDXIND = 7,  \/\/ Indexed-indirect$/;"	e	enum:addr_mode
+MODE_IMM	emu/include/mos6502/mos6502.h	/^	MODE_IMM = 5,     \/\/ Immediate$/;"	e	enum:addr_mode
+MODE_IMPL	emu/include/mos6502/mos6502.h	/^	MODE_IMPL = 6,    \/\/ Implied$/;"	e	enum:addr_mode
+MODE_IND	emu/include/mos6502/mos6502.h	/^	MODE_IND = 8,     \/\/ Indirect$/;"	e	enum:addr_mode
+MODE_INDIDX	emu/include/mos6502/mos6502.h	/^	MODE_INDIDX = 9,  \/\/ Indirect-indexed$/;"	e	enum:addr_mode
+MODE_NONE	emu/include/mos6502/mos6502.h	/^	MODE_NONE = 0,    \/\/ No address calculation in decode$/;"	e	enum:addr_mode
+MODE_REL	emu/include/mos6502/mos6502.h	/^	MODE_REL = 10,    \/\/ Relative$/;"	e	enum:addr_mode
+MODE_ZEROP	emu/include/mos6502/mos6502.h	/^	MODE_ZEROP = 11,  \/\/ Zero-page$/;"	e	enum:addr_mode
+MODE_ZEROPX	emu/include/mos6502/mos6502.h	/^	MODE_ZEROPX = 12, \/\/ Zero-page, indexed by X$/;"	e	enum:addr_mode
+MODE_ZEROPY	emu/include/mos6502/mos6502.h	/^	MODE_ZEROPY = 13, \/\/ Zero-page, indexed by Y$/;"	e	enum:addr_mode
+MOS6502_CLKDIVISOR	emu/include/mos6502/mos6502.h	9;"	d
+MOS6502_STEP_RESULT_ILLEGAL_INSTRUCTION	emu/include/mos6502/mos6502.h	/^	MOS6502_STEP_RESULT_ILLEGAL_INSTRUCTION,$/;"	e	enum:mos6502_step_result
+MOS6502_STEP_RESULT_SUCCESS	emu/include/mos6502/mos6502.h	/^	MOS6502_STEP_RESULT_SUCCESS,$/;"	e	enum:mos6502_step_result
+MOS6502_STEP_RESULT_UNHANDLED_VMCALL	emu/include/mos6502/mos6502.h	/^	MOS6502_STEP_RESULT_UNHANDLED_VMCALL,$/;"	e	enum:mos6502_step_result
+MOS6502_STEP_RESULT_VMBREAK	emu/include/mos6502/mos6502.h	/^	MOS6502_STEP_RESULT_VMBREAK,$/;"	e	enum:mos6502_step_result
+NES_NTSC_SYSCLK	emu/main.c	23;"	d	file:
+PACKED	emu/include/base.h	73;"	d
+PACKED	emu/include/nes/ppu.h	/^		} PACKED;$/;"	m	union:ppu::__anon11	typeref:struct:ppu::__anon11::__anon12
+PACKED	emu/include/nes/ppu.h	/^		} PACKED;$/;"	m	union:ppu::__anon13	typeref:struct:ppu::__anon13::__anon14
+PPU_CHR_BASEADDR_0000	emu/include/nes/ppu.h	/^	PPU_CHR_BASEADDR_0000 = 0,$/;"	e	enum:ppu_chr_baseaddr
+PPU_CHR_BASEADDR_1000	emu/include/nes/ppu.h	/^	PPU_CHR_BASEADDR_1000 = 1,$/;"	e	enum:ppu_chr_baseaddr
+PPU_CLKDIVISOR	emu/include/nes/ppu.h	11;"	d
+PPU_NT_BASEADDR_2000	emu/include/nes/ppu.h	/^	PPU_NT_BASEADDR_2000 = 0,$/;"	e	enum:ppu_nt_baseaddr
+PPU_NT_BASEADDR_2400	emu/include/nes/ppu.h	/^	PPU_NT_BASEADDR_2400 = 1,$/;"	e	enum:ppu_nt_baseaddr
+PPU_NT_BASEADDR_2800	emu/include/nes/ppu.h	/^	PPU_NT_BASEADDR_2800 = 2,$/;"	e	enum:ppu_nt_baseaddr
+PPU_NT_BASEADDR_2C00	emu/include/nes/ppu.h	/^	PPU_NT_BASEADDR_2C00 = 3,$/;"	e	enum:ppu_nt_baseaddr
+PPU_OUTPUT_HEIGHT	emu/include/nes/ppu.h	10;"	d
+PPU_OUTPUT_WIDTH	emu/include/nes/ppu.h	9;"	d
+PPU_SPRITESIZE_8x16	emu/include/nes/ppu.h	/^	PPU_SPRITESIZE_8x16 = 1,$/;"	e	enum:ppu_spritesize
+PPU_SPRITESIZE_8x8	emu/include/nes/ppu.h	/^	PPU_SPRITESIZE_8x8 = 0,$/;"	e	enum:ppu_spritesize
+PPU_VRAM_ADDR_INC_1	emu/include/nes/ppu.h	/^	PPU_VRAM_ADDR_INC_1 = 0,$/;"	e	enum:ppu_vram_addr_inc
+PPU_VRAM_ADDR_INC_32	emu/include/nes/ppu.h	/^	PPU_VRAM_ADDR_INC_32 = 1,$/;"	e	enum:ppu_vram_addr_inc
+PROMPT_STR	emu/include/shell.h	5;"	d
+RED	emu/include/base.h	13;"	d
+RESET_MANAGER_MAX_DEVICES	emu/include/reset_manager.h	17;"	d
+SPELLINGS	emu/shell.c	486;"	d	file:
+STA_handler	emu/mos6502/mos6502.c	/^STA_handler(mos6502_t *cpu){$/;"	f
+SUGGESTION_PRINT	emu/include/base.h	44;"	d
+SUGGESTION_PRINT_NOBRK	emu/include/base.h	46;"	d
+TESTS	Makefile	/^TESTS = $(addprefix $(BIN_DIR)\/,$(patsubst %.c,%,$(patsubst %.s,%,$(TEST_SRC))))$/;"	m
+TEST_ASMOBJ	Makefile	/^TEST_ASMOBJ = $(addprefix $(TEST_BUILD_DIR)\/,$(patsubst %.s,%.o,$(filter %.s,$(TEST_SRC))))$/;"	m
+TEST_BUILD_DIR	Makefile	/^TEST_BUILD_DIR = $(BUILD_DIR)\/test$/;"	m
+TEST_CASM	Makefile	/^TEST_CASM = $(addprefix $(TEST_BUILD_DIR)\/,$(patsubst %.c,%.s,$(filter %.c,$(TEST_SRC))))$/;"	m
+TEST_COBJ	Makefile	/^TEST_COBJ = $(TEST_CASM:.s=.o)$/;"	m
+TEST_DEP	Makefile	/^TEST_DEP = $(TEST_OBJ:.o=.d)$/;"	m
+TEST_OBJ	Makefile	/^TEST_OBJ = $(TEST_COBJ) $(TEST_ASMOBJ)$/;"	m
+TEST_SRC	Makefile	/^TEST_SRC :=$/;"	m
+TEST_SRC_DIR	Makefile	/^TEST_SRC_DIR = test$/;"	m
+TIMEKEEPER_MAX_TIMERS	emu/include/timekeeper.h	9;"	d
+TV_NTSC	emu/ines.c	/^	TV_NTSC = 0,$/;"	e	enum:tv_type	file:
+TV_PAL	emu/ines.c	/^	TV_PAL = 1,$/;"	e	enum:tv_type	file:
+TXS_handler	emu/mos6502/mos6502.c	/^TXS_handler(mos6502_t *cpu){$/;"	f
+UNBOLD	emu/include/base.h	34;"	d
+UNIMPLEMENTED	emu/include/base.h	78;"	d
+UNLIKELY	emu/include/base.h	63;"	d
+UNREACHABLE	emu/include/base.h	134;"	d
+UNREACHABLE_ASSUMPTION	emu/include/base.h	158;"	d
+UNREACHABLE_ASSUMPTION	emu/include/base.h	160;"	d
+UNREACHABLE_ERROR	emu/include/base.h	146;"	d
+UNREACHABLE_ERROR	emu/include/base.h	148;"	d
+UNREACHABLE_REACTION	emu/include/base.h	152;"	d
+UNREACHABLE_REACTION	emu/include/base.h	154;"	d
+VMCALL_ARGS	emu/include/mos6502/vmcall.h	7;"	d
+VMCALL_BREAK	emu/include/mos6502/vmcall.h	13;"	d
+VMCALL_CLOSE	emu/include/mos6502/vmcall.h	10;"	d
+VMCALL_EXIT	emu/include/mos6502/vmcall.h	8;"	d
+VMCALL_OPEN	emu/include/mos6502/vmcall.h	9;"	d
+VMCALL_READ	emu/include/mos6502/vmcall.h	11;"	d
+VMCALL_WRITE	emu/include/mos6502/vmcall.h	12;"	d
+WARNING_PRINT	emu/include/base.h	41;"	d
+WHITE	emu/include/base.h	19;"	d
+YELLOW	emu/include/base.h	15;"	d
+__ctype	lib/ctype.s	/^__ctype:$/;"	l
+_exit	lib/crt0.s	/^_exit:  pha$/;"	l
+a	emu/include/mos6502/mos6502.h	/^	uint8_t a;    \/\/ accumulator$/;"	m	struct:mos6502
+addr	emu/include/mos6502/mos6502.h	/^	uint16_t addr;$/;"	m	struct:decode_info
+addr_mode	emu/include/mos6502/mos6502.h	/^typedef enum addr_mode {$/;"	g
+addr_mode_t	emu/include/mos6502/mos6502.h	/^} addr_mode_t;$/;"	t	typeref:enum:addr_mode
+attr	emu/include/nes/ppu.h	/^	ppu_spriteattr_t attr;$/;"	m	struct:ppu_sprite
+attr_addr	emu/nes/ppu.c	/^attr_addr (ppu_t * nonnull ppu)$/;"	f	file:
+attr_latch	emu/include/nes/ppu.h	/^	uint8_t bmp_latch[2], nt_latch, attr_latch;$/;"	m	struct:ppu
+b	emu/include/mos6502/mos6502.h	/^		bool b : 1; \/\/ break command$/;"	m	struct:stat_reg::__anon2
+banksel	emu/include/nes/mmc1.h	/^		uint8_t banksel : 4;$/;"	m	struct:mmc1_reg3::__anon17
+bb_chram_size	emu/ines.c	/^	uint8_t bb_chram_size : 4;$/;"	m	struct:ines2_flags11	file:
+bb_wram_size	emu/ines.c	/^	uint8_t bb_wram_size : 4;$/;"	m	struct:ines2_flags10	file:
+behind_bg	emu/include/nes/ppu.h	/^	bool behind_bg : 1;$/;"	m	struct:ppu_spriteattr
+bg_attr_shiftregs	emu/include/nes/ppu.h	/^	uint8_t bg_attr_shiftregs[2];$/;"	m	struct:ppu
+bg_bmp_addr	emu/nes/ppu.c	/^bg_bmp_addr (ppu_t * nonnull ppu)$/;"	f	file:
+bg_bmp_shiftregs	emu/include/nes/ppu.h	/^	uint16_t bg_bmp_shiftregs[2];$/;"	m	struct:ppu
+bg_chr_baseaddr	emu/include/nes/ppu.h	/^		ppu_chr_baseaddr_t bg_chr_baseaddr     : 1;$/;"	m	struct:ppu::__anon10
+bg_en	emu/include/nes/ppu.h	/^			bool bg_en          : 1;$/;"	m	struct:ppu::__anon8::__anon9
+bg_memfetch	emu/nes/ppu.c	/^bg_memfetch (ppu_t * nonnull ppu)$/;"	f	file:
+bg_palette	emu/include/nes/ppu.h	/^	uint8_t bg_palette;$/;"	m	struct:ppu
+bitswap	emu/nes/ppu.c	/^bitswap (uint8_t * nonnull val)$/;"	f	file:
+bmp_latch	emu/include/nes/ppu.h	/^	uint8_t bmp_latch[2], nt_latch, attr_latch;$/;"	m	struct:ppu
+bool	emu/include/mos6502/mos6502.h	/^		bool : 1;   \/\/ unused$/;"	m	struct:stat_reg::__anon2
+bp_list	emu/shell.c	/^bp_list (void)$/;"	f	file:
+bptl2	emu/shell.c	/^static uint8_t * bptl2[256];$/;"	v	file:
+buggy_read16	emu/mos6502/mos6502.c	/^buggy_read16 (mos6502_t * cpu, uint16_t addr)$/;"	f	file:
+bus	emu/include/mos6502/mos6502.h	/^	struct membus * nonnull \/*strong*\/ bus;$/;"	m	struct:mos6502	typeref:struct:mos6502::nonnull
+bus	emu/include/nes/ppu.h	/^	struct membus * nonnull \/*strong*\/ bus;$/;"	m	struct:ppu	typeref:struct:ppu::nonnull
+bytes	emu/include/memory.h	/^	uint8_t bytes[];$/;"	m	struct:memory
+c	emu/include/mos6502/mos6502.h	/^		bool c : 1; \/\/ carry flag$/;"	m	struct:stat_reg::__anon2
+check_step_result	emu/shell.c	/^check_step_result (mos6502_t * cpu, mos6502_step_result_t step_result)$/;"	f	file:
+chr_switching	emu/include/nes/mmc1.h	/^		mmc1_chr_switching_t chr_switching : 1;$/;"	m	struct:mmc1_reg0::__anon16
+chram	emu/include/ines.h	/^	memory_t * nullable \/*unowned*\/ chram;$/;"	m	struct:rominfo
+chrom	emu/include/ines.h	/^	memory_t * nullable \/*unowned*\/ chrom;$/;"	m	struct:rominfo
+chrom	emu/nes/sxrom.c	/^	memory_t * nonnull \/*strong*\/ chrom;$/;"	m	struct:sxrom	file:
+chrom_size	emu/ines.c	/^	uint8_t chrom_size;$/;"	m	struct:common_header	file:
+chrom_size_nib	emu/ines.c	/^	uint8_t chrom_size_nib : 4;$/;"	m	struct:ines2_flags9	file:
+clear_regs	emu/nes/ppu.c	/^clear_regs (ppu_t * nonnull ppu)$/;"	f	file:
+clk_countdown	emu/include/nes/ppu.h	/^	uint64_t clk_countdown;$/;"	m	struct:ppu
+clk_cyclenum	emu/include/timekeeper.h	/^	uint64_t clk_cyclenum;$/;"	m	struct:timekeeper
+clk_period	emu/include/timekeeper.h	/^	double clk_period;$/;"	m	struct:timekeeper
+cmd_break	emu/shell.c	/^cmd_break (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_break_list	emu/shell.c	/^cmd_break_list (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_break_rm	emu/shell.c	/^cmd_break_rm (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_cont	emu/shell.c	/^cmd_cont (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_dumpmem	emu/shell.c	/^cmd_dumpmem (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_help	emu/shell.c	/^cmd_help (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_irq	emu/shell.c	/^cmd_irq (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_jump	emu/shell.c	/^cmd_jump (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_nmi	emu/shell.c	/^cmd_nmi (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_peek	emu/shell.c	/^cmd_peek (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_poke	emu/shell.c	/^cmd_poke (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_print_instr	emu/shell.c	/^cmd_print_instr (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_quit	emu/shell.c	/^cmd_quit (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_regs	emu/shell.c	/^cmd_regs (mos6502_t * cpu, char * args)$/;"	f	file:
+cmd_step	emu/shell.c	/^cmd_step (mos6502_t * cpu, char * args)$/;"	f	file:
+coarse_xscroll	emu/include/nes/ppu.h	/^			uint8_t coarse_xscroll        : 5;$/;"	m	struct:ppu::__anon11::__anon12
+coarse_yscroll	emu/include/nes/ppu.h	/^			uint8_t coarse_yscroll        : 5;$/;"	m	struct:ppu::__anon11::__anon12
+command_descriptor	emu/shell.c	/^typedef struct command_descriptor {$/;"	s	file:
+command_descriptor_t	emu/shell.c	/^} command_descriptor_t;$/;"	t	typeref:struct:command_descriptor	file:
+commands	emu/shell.c	/^static const command_descriptor_t commands[] = {$/;"	v	file:
+common_header	emu/ines.c	/^typedef struct common_header {$/;"	s	file:
+common_header_t	emu/ines.c	/^} common_header_t;$/;"	t	typeref:struct:common_header	file:
+controller_button	emu/include/nes/io_reg.h	/^typedef enum controller_button {$/;"	g
+controller_button_t	emu/include/nes/io_reg.h	/^} PACKED controller_button_t;$/;"	t	typeref:enum:controller_button
+controller_mappings	emu/include/nes/io_reg.h	/^	SDL_Scancode controller_mappings[CONTROLLER_NBUTTONS][2];$/;"	m	struct:io_reg
+controller_shiftregs	emu/include/nes/io_reg.h	/^	uint8_t controller_shiftregs[2];$/;"	m	struct:io_reg
+controller_strobe	emu/include/nes/io_reg.h	/^	bool controller_strobe;$/;"	m	struct:io_reg
+countdown	emu/include/timekeeper.h	/^		uint64_t * nullable countdown;$/;"	m	struct:timekeeper::__anon1
+cpu	emu/include/ines.h	/^	mos6502_t * nonnull \/*unowned*\/ cpu;$/;"	m	struct:rominfo
+cpu	emu/include/mos6502/mos6502.h	/^	mos6502_t * nonnull cpu;$/;"	m	struct:decode_info
+cpu	emu/include/nes/io_reg.h	/^	mos6502_t * nonnull \/*unowned*\/ cpu;$/;"	m	struct:io_reg
+cpu	emu/include/nes/ppu.h	/^	struct mos6502 * nonnull \/*unowned*\/ cpu;$/;"	m	struct:ppu	typeref:struct:ppu::nonnull
+cpu	emu/nes/sxrom.c	/^	mos6502_t * nonnull \/*unowned*\/ cpu;$/;"	m	struct:sxrom	file:
+d	emu/include/mos6502/mos6502.h	/^		bool d : 1; \/\/ decimal mode$/;"	m	struct:stat_reg::__anon2
+data	emu/include/membus.h	/^			uint8_t * nullable \/*unowned*\/ data;$/;"	m	union:membus::__anon3::__anon4
+data	emu/include/membus.h	/^			uint8_t * nullable \/*unowned*\/ data;$/;"	m	union:membus::__anon5::__anon6
+data_lanes	emu/include/membus.h	/^	uint8_t data_lanes;$/;"	m	struct:membus
+decode_info	emu/include/mos6502/mos6502.h	/^typedef struct decode_info {$/;"	s
+decode_info_t	emu/include/mos6502/mos6502.h	/^} decode_info_t;$/;"	t	typeref:struct:decode_info
+decode_ram_size	emu/ines.c	/^decode_ram_size (size_t encoded_size)$/;"	f	file:
+deinit	emu/include/rc.h	/^	void (*nullable deinit)(void * nonnull obj);$/;"	m	struct:rc
+deinit	emu/membus.c	/^deinit (membus_t * nonnull bus)$/;"	f	file:
+deinit	emu/mos6502/mos6502-common.c	/^deinit (mos6502_t * cpu)$/;"	f	file:
+deinit	emu/nes/ppu.c	/^deinit (ppu_t * nonnull ppu)$/;"	f	file:
+deinit	emu/nes/sxrom.c	/^deinit (sxrom_t * cart)$/;"	f	file:
+deinit	emu/reset_manager.c	/^deinit (reset_manager_t * rm)$/;"	f	file:
+deinit	emu/timekeeper.c	/^deinit (timekeeper_t * tk)$/;"	f	file:
+description	emu/shell.c	/^	const char * description;$/;"	m	struct:command_descriptor	file:
+dev	emu/include/reset_manager.h	/^		void * nullable \/*weak*\/ dev;$/;"	m	struct:reset_manager::__anon7
+devices	emu/include/reset_manager.h	/^	} devices[RESET_MANAGER_MAX_DEVICES];$/;"	m	struct:reset_manager	typeref:struct:reset_manager::__anon7
+dotnum	emu/include/nes/ppu.h	/^	size_t dotnum;$/;"	m	struct:ppu
+draw_pixel	emu/nes/ppu.c	/^draw_pixel (ppu_t * ppu)$/;"	f	file:
+dummy_memfetch	emu/nes/ppu.c	/^dummy_memfetch (ppu_t * nonnull ppu)$/;"	f	file:
+emph_blue	emu/include/nes/ppu.h	/^			bool emph_blue      : 1;$/;"	m	struct:ppu::__anon8::__anon9
+emph_blue	emu/include/nes/ppu.h	/^	bool emph_blue        : 1;$/;"	m	struct:ppu_pixel
+emph_green	emu/include/nes/ppu.h	/^			bool emph_green     : 1;$/;"	m	struct:ppu::__anon8::__anon9
+emph_green	emu/include/nes/ppu.h	/^	bool emph_green       : 1;$/;"	m	struct:ppu_pixel
+emph_red	emu/include/nes/ppu.h	/^			bool emph_red       : 1;$/;"	m	struct:ppu::__anon8::__anon9
+emph_red	emu/include/nes/ppu.h	/^	bool emph_red         : 1;$/;"	m	struct:ppu_pixel
+eval_nsprites	emu/include/nes/ppu.h	/^	uint8_t eval_nsprites;$/;"	m	struct:ppu
+eval_sprites	emu/include/nes/ppu.h	/^	ppu_sprite_t eval_sprites[8];$/;"	m	struct:ppu
+fine_xscroll	emu/include/nes/ppu.h	/^	uint8_t fine_xscroll;$/;"	m	struct:ppu
+fine_yscroll	emu/include/nes/ppu.h	/^			uint8_t fine_yscroll          : 3;$/;"	m	struct:ppu::__anon11::__anon12
+fire	emu/include/timekeeper.h	/^		void (*nullable fire)(void * nonnull obj);$/;"	m	struct:timekeeper::__anon1
+flags10	emu/ines.c	/^	ines2_flags10_t flags10;$/;"	m	struct:ines2_header	file:
+flags11	emu/ines.c	/^	ines2_flags11_t flags11;$/;"	m	struct:ines2_header	file:
+flags12	emu/ines.c	/^	ines2_flags12_t flags12;$/;"	m	struct:ines2_header	file:
+flags6	emu/ines.c	/^	flags6_t flags6;$/;"	m	struct:common_header	file:
+flags6	emu/ines.c	/^typedef struct flags6 {$/;"	s	file:
+flags6_t	emu/ines.c	/^} flags6_t;$/;"	t	typeref:struct:flags6	file:
+flags7	emu/ines.c	/^	flags7_t flags7;$/;"	m	struct:common_header	file:
+flags7	emu/ines.c	/^typedef struct flags7 {$/;"	s	file:
+flags7_t	emu/ines.c	/^} flags7_t;$/;"	t	typeref:struct:flags7	file:
+flags8	emu/ines.c	/^	ines2_flags8_t flags8;$/;"	m	struct:ines2_header	file:
+flags9	emu/ines.c	/^	ines1_flags9_t flags9;$/;"	m	struct:ines1_header	file:
+flags9	emu/ines.c	/^	ines2_flags9_t flags9;$/;"	m	struct:ines2_header	file:
+four_screen_vram	emu/ines.c	/^	bool four_screen_vram : 1;$/;"	m	struct:flags6	file:
+framenum	emu/include/nes/ppu.h	/^	size_t framenum;$/;"	m	struct:ppu
+fread_print_error	emu/fileio.c	/^fread_print_error (FILE * f, const char * path)$/;"	f
+get_ax	emu/mos6502/vmcall.c	/^get_ax (mos6502_t * cpu)$/;"	f	file:
+greyscale_en	emu/include/nes/ppu.h	/^			bool greyscale_en   : 1;$/;"	m	struct:ppu::__anon8::__anon9
+handle_args	emu/mos6502/vmcall.c	/^handle_args (mos6502_t * cpu)$/;"	f	file:
+handle_close	emu/mos6502/vmcall.c	/^handle_close (mos6502_t * cpu)$/;"	f	file:
+handle_cmd	emu/shell.c	/^handle_cmd (mos6502_t * cpu, char * line)$/;"	f	file:
+handle_exit	emu/mos6502/vmcall.c	/^handle_exit (mos6502_t * cpu)$/;"	f	file:
+handle_irq	lib/intr.c	/^handle_irq (void)$/;"	f
+handle_nmi	lib/intr.c	/^handle_nmi (void) $/;"	f
+handle_open	emu/mos6502/vmcall.c	/^handle_open (mos6502_t * cpu)$/;"	f	file:
+handle_read	emu/mos6502/vmcall.c	/^handle_read (mos6502_t * cpu)$/;"	f	file:
+handle_sigint	emu/shell.c	/^handle_sigint (int signum)$/;"	f	file:
+handle_vmcall	emu/mos6502/vmcall.c	/^handle_vmcall (decode_info_t * info)$/;"	f
+handle_write	emu/mos6502/vmcall.c	/^handle_write (mos6502_t * cpu)$/;"	f	file:
+handler	emu/include/membus.h	/^			uint8_t (* nullable handler)(void * nonnull, uint16_t, uint8_t * nonnull);$/;"	m	union:membus::__anon3::__anon4
+handler	emu/include/membus.h	/^			void (* nullable handler)(void * nonnull, uint16_t, uint8_t);$/;"	m	union:membus::__anon5::__anon6
+handler	emu/include/reset_manager.h	/^		void (*nullable handler)(void * nonnull dev);$/;"	m	struct:reset_manager::__anon7
+handler	emu/shell.c	/^	int (*handler)(mos6502_t *, char *);$/;"	m	struct:command_descriptor	file:
+hawknest_magic	emu/main.c	/^static const uint8_t hawknest_magic[4] = {'H', 'K', 'N', 'S'};$/;"	v	file:
+hawknest_rom_load	emu/main.c	/^hawknest_rom_load (FILE * nonnull f, const char * nonnull path, reset_manager_t * nonnull rm, mos6502_t * nonnull cpu)$/;"	f	file:
+horiz_flipped	emu/include/nes/ppu.h	/^	bool horiz_flipped : 1;$/;"	m	struct:ppu_spriteattr
+i	emu/include/mos6502/mos6502.h	/^		bool i : 1; \/\/ interrupt disable$/;"	m	struct:stat_reg::__anon2
+ignored	emu/ines.c	/^	uint8_t ignored[3];$/;"	m	struct:ines2_header	file:
+ignored	emu/ines.c	/^	uint8_t ignored[6];$/;"	m	struct:ines1_header	file:
+inc_coarse_x	emu/nes/ppu.c	/^inc_coarse_x (ppu_t * nonnull ppu)$/;"	f	file:
+inc_vram_addr_rw	emu/nes/ppu.c	/^inc_vram_addr_rw (ppu_t * nonnull ppu)$/;"	f	file:
+inc_y	emu/nes/ppu.c	/^inc_y (ppu_t * nonnull ppu)$/;"	f	file:
+ines1_flags9	emu/ines.c	/^typedef struct ines1_flags9 {$/;"	s	file:
+ines1_flags9_t	emu/ines.c	/^} ines1_flags9_t;$/;"	t	typeref:struct:ines1_flags9	file:
+ines1_header	emu/ines.c	/^typedef struct ines1_header {$/;"	s	file:
+ines1_header_t	emu/ines.c	/^} ines1_header_t;$/;"	t	typeref:struct:ines1_header	file:
+ines2_flags10	emu/ines.c	/^typedef struct ines2_flags10 {$/;"	s	file:
+ines2_flags10_t	emu/ines.c	/^} ines2_flags10_t;$/;"	t	typeref:struct:ines2_flags10	file:
+ines2_flags11	emu/ines.c	/^typedef struct ines2_flags11 {$/;"	s	file:
+ines2_flags11_t	emu/ines.c	/^} ines2_flags11_t;$/;"	t	typeref:struct:ines2_flags11	file:
+ines2_flags12	emu/ines.c	/^typedef struct ines2_flags12 {$/;"	s	file:
+ines2_flags12_t	emu/ines.c	/^} ines2_flags12_t;$/;"	t	typeref:struct:ines2_flags12	file:
+ines2_flags8	emu/ines.c	/^typedef struct ines2_flags8 {$/;"	s	file:
+ines2_flags8_t	emu/ines.c	/^} ines2_flags8_t;$/;"	t	typeref:struct:ines2_flags8	file:
+ines2_flags9	emu/ines.c	/^typedef struct ines2_flags9 {$/;"	s	file:
+ines2_flags9_t	emu/ines.c	/^} ines2_flags9_t;$/;"	t	typeref:struct:ines2_flags9	file:
+ines2_header	emu/ines.c	/^typedef struct ines2_header {$/;"	s	file:
+ines2_header_t	emu/ines.c	/^} ines2_header_t;$/;"	t	typeref:struct:ines2_header	file:
+ines_magic	emu/main.c	/^static const uint8_t ines_magic[4] = {0x4E, 0x45, 0x53, 0x1A};$/;"	v	file:
+ines_mirroring	emu/include/ines.h	/^typedef enum ines_mirroring {$/;"	g
+ines_mirroring_t	emu/include/ines.h	/^} PACKED ines_mirroring_t;$/;"	t	typeref:enum:ines_mirroring
+inesrom_load	emu/ines.c	/^inesrom_load (FILE * f,$/;"	f
+initmainargs	lib/mainargs.s	/^initmainargs:$/;"	l
+insert_bp	emu/shell.c	/^insert_bp (uint16_t bp_addr)$/;"	f	file:
+instr_cycles	emu/mos6502/mos6502.c	/^static const uint8_t instr_cycles[256] = {$/;"	v	file:
+intr	emu/include/mos6502/mos6502.h	/^typedef enum intr {$/;"	g
+intr_status	emu/include/mos6502/mos6502.h	/^	intr_t intr_status;$/;"	m	struct:mos6502
+intr_t	emu/include/mos6502/mos6502.h	/^} intr_t;$/;"	t	typeref:enum:intr
+io_reg	emu/include/nes/io_reg.h	/^typedef struct io_reg {$/;"	s
+io_reg_new	emu/nes/io_reg.c	/^io_reg_new (reset_manager_t * rm, mos6502_t * cpu, const char * cscheme_path)$/;"	f
+io_reg_setup	emu/nes/io_reg.c	/^io_reg_setup (reset_manager_t * rm, mos6502_t * cpu, const char * cscheme_path)$/;"	f
+io_reg_t	emu/include/nes/io_reg.h	/^} io_reg_t;$/;"	t	typeref:struct:io_reg
+irq	lib/crt0.s	/^irq:$/;"	l
+is_prime	test/primes.c	/^int is_prime(unsigned int num)$/;"	f
+is_valid_bp	emu/shell.c	/^is_valid_bp (uint16_t bp_addr)$/;"	f	file:
+last_branch_delay	emu/include/mos6502/mos6502.h	/^	uint64_t last_branch_delay;$/;"	m	struct:mos6502
+last_cpu_cyclenum	emu/include/nes/mmc1.h	/^	uint64_t last_cpu_cyclenum;$/;"	m	struct:mmc1
+last_takeover_delay	emu/include/mos6502/mos6502.h	/^	uint64_t last_takeover_delay;$/;"	m	struct:mos6502
+lc	Makefile	/^lc = $(shell echo $(1) | tr A-Z a-z)$/;"	m
+left_bg_en	emu/include/nes/ppu.h	/^			bool left_bg_en     : 1;$/;"	m	struct:ppu::__anon8::__anon9
+left_sprite_en	emu/include/nes/ppu.h	/^			bool left_sprite_en : 1;$/;"	m	struct:ppu::__anon8::__anon9
+load_rom	emu/main.c	/^load_rom (const char * nonnull path,$/;"	f	file:
+load_shiftregs	emu/nes/ppu.c	/^load_shiftregs (ppu_t * nonnull ppu)$/;"	f	file:
+long_options	emu/main.c	/^static struct option long_options[] = {$/;"	v	typeref:struct:option	file:
+main	emu/main.c	/^main (int argc, char ** argv)$/;"	f
+main	test/add.c	/^int main(){$/;"	f
+main	test/hello.c	/^int main (void)$/;"	f
+main	test/p.c	/^void main(){$/;"	f
+main	test/primes.c	/^main()$/;"	f
+make_vmc	lib/paravirt.s	/^make_vmc _close, $03$/;"	l
+make_vmc	lib/paravirt.s	/^make_vmc _open,  $02$/;"	l
+make_vmc	lib/paravirt.s	/^make_vmc _read,  $04$/;"	l
+make_vmc	lib/paravirt.s	/^make_vmc _write, $05$/;"	l
+make_vmc	lib/paravirt.s	/^make_vmc args,   $00$/;"	l
+make_vmc	lib/paravirt.s	/^make_vmc exit,   $01$/;"	l
+mapper_nib_high	emu/ines.c	/^	uint8_t mapper_nib_high : 4;$/;"	m	struct:flags7	file:
+mapper_nib_higher	emu/ines.c	/^	uint8_t mapper_nib_higher : 4;$/;"	m	struct:ines2_flags8	file:
+mapper_nib_low	emu/ines.c	/^	uint8_t mapper_nib_low : 4;$/;"	m	struct:flags6	file:
+mask	emu/include/nes/ppu.h	/^		uint8_t mask;$/;"	m	union:ppu::__anon8
+membus	emu/include/membus.h	/^typedef struct membus {$/;"	s
+membus_clear_page	emu/membus.c	/^membus_clear_page (membus_t * bus, size_t pagenum)$/;"	f
+membus_new	emu/membus.c	/^membus_new (reset_manager_t * rm)$/;"	f
+membus_read	emu/membus.c	/^membus_read (membus_t * bus, uint16_t addr)$/;"	f
+membus_set_read_handler	emu/membus.c	/^membus_set_read_handler (membus_t * bus, size_t pagenum, void * obj, size_t offset, void * handler)$/;"	f
+membus_set_read_memory	emu/membus.c	/^membus_set_read_memory (membus_t * bus, size_t pagenum, void * obj, void * data)$/;"	f
+membus_set_write_handler	emu/membus.c	/^membus_set_write_handler (membus_t * bus, size_t pagenum, void * obj, size_t offset, void * handler)$/;"	f
+membus_set_write_memory	emu/membus.c	/^membus_set_write_memory (membus_t * bus, size_t pagenum, void * obj, void * data)$/;"	f
+membus_t	emu/include/membus.h	/^} membus_t;$/;"	t	typeref:struct:membus
+membus_write	emu/membus.c	/^membus_write (membus_t * bus, uint16_t addr, uint8_t val)$/;"	f
+memfetch	emu/nes/ppu.c	/^memfetch (ppu_t * nonnull ppu)$/;"	f	file:
+memory	emu/include/memory.h	/^typedef struct memory {$/;"	s
+memory_map	emu/memory.c	/^memory_map (memory_t * mem, membus_t * bus, uint16_t bus_start, uint16_t size, size_t start)$/;"	f
+memory_map_mirroring	emu/memory.c	/^memory_map_mirroring (memory_t * mem, membus_t * bus, uint16_t bus_start, uint16_t size, size_t start, size_t nmirrors)$/;"	f
+memory_new	emu/memory.c	/^memory_new (reset_manager_t * rm, size_t size, bool writeable)$/;"	f
+memory_t	emu/include/memory.h	/^} memory_t;$/;"	t	typeref:struct:memory
+mirroring	emu/include/ines.h	/^	ines_mirroring_t mirroring;$/;"	m	struct:rominfo
+mirroring	emu/include/nes/mmc1.h	/^		mmc1_mirroring_t mirroring : 2;$/;"	m	struct:mmc1_reg0::__anon16
+mirroring	emu/ines.c	/^	ines_mirroring_t mirroring : 1;$/;"	m	struct:flags6	file:
+mmc1	emu/include/nes/mmc1.h	/^typedef struct mmc1 {$/;"	s
+mmc1	emu/nes/sxrom.c	/^	mmc1_t mmc1;$/;"	m	struct:sxrom	file:
+mmc1_chr_switching	emu/include/nes/mmc1.h	/^typedef enum mmc1_chr_switching {$/;"	g
+mmc1_chr_switching_t	emu/include/nes/mmc1.h	/^} PACKED mmc1_chr_switching_t;$/;"	t	typeref:enum:mmc1_chr_switching
+mmc1_map_vram	emu/nes/mmc1.c	/^mmc1_map_vram (mmc1_t * mmc1, membus_t * bus, memory_t * vram)$/;"	f
+mmc1_mirroring	emu/include/nes/mmc1.h	/^typedef enum mmc1_mirroring {$/;"	g
+mmc1_mirroring_t	emu/include/nes/mmc1.h	/^} PACKED mmc1_mirroring_t;$/;"	t	typeref:enum:mmc1_mirroring
+mmc1_prgrom_fixation	emu/include/nes/mmc1.h	/^typedef enum mmc1_prgrom_fixation {$/;"	g
+mmc1_prgrom_fixation_t	emu/include/nes/mmc1.h	/^} PACKED mmc1_prgrom_fixation_t;$/;"	t	typeref:enum:mmc1_prgrom_fixation
+mmc1_prgrom_switching	emu/include/nes/mmc1.h	/^typedef enum mmc1_prgrom_switching {$/;"	g
+mmc1_prgrom_switching_t	emu/include/nes/mmc1.h	/^} PACKED mmc1_prgrom_switching_t;$/;"	t	typeref:enum:mmc1_prgrom_switching
+mmc1_reg0	emu/include/nes/mmc1.h	/^typedef union mmc1_reg0 {$/;"	u
+mmc1_reg0_t	emu/include/nes/mmc1.h	/^} mmc1_reg0_t;$/;"	t	typeref:union:mmc1_reg0
+mmc1_reg3	emu/include/nes/mmc1.h	/^typedef union mmc1_reg3 {$/;"	u
+mmc1_reg3_t	emu/include/nes/mmc1.h	/^} mmc1_reg3_t;$/;"	t	typeref:union:mmc1_reg3
+mmc1_reg_write	emu/nes/mmc1.c	/^mmc1_reg_write (mmc1_t * mmc1, size_t regnum, uint8_t val, uint64_t cpu_cyclenum)$/;"	f
+mmc1_reset	emu/nes/mmc1.c	/^mmc1_reset (mmc1_t * mmc1)$/;"	f
+mmc1_t	emu/include/nes/mmc1.h	/^} mmc1_t;$/;"	t	typeref:struct:mmc1
+mode	emu/include/mos6502/mos6502.h	/^	addr_mode_t mode;$/;"	m	struct:decode_info
+mos6502	emu/include/mos6502/mos6502.h	/^typedef struct mos6502 {$/;"	s
+mos6502_advance_clk	emu/mos6502/mos6502-common.c	/^mos6502_advance_clk (mos6502_t * cpu, size_t ncycles)$/;"	f
+mos6502_instr_repr	emu/mos6502/mos6502.c	/^mos6502_instr_repr (mos6502_t * cpu, uint16_t addr, char * buffer, size_t buflen)$/;"	f
+mos6502_new	emu/mos6502/mos6502-common.c	/^mos6502_new (reset_manager_t * rm,$/;"	f
+mos6502_raise_irq	emu/mos6502/mos6502-common.c	/^mos6502_raise_irq (mos6502_t * cpu)$/;"	f
+mos6502_raise_nmi	emu/mos6502/mos6502-common.c	/^mos6502_raise_nmi (mos6502_t * cpu)$/;"	f
+mos6502_reset	emu/mos6502/mos6502-common.c	/^mos6502_reset (mos6502_t * cpu)$/;"	f
+mos6502_step	emu/mos6502/mos6502.c	/^mos6502_step (mos6502_t * cpu)$/;"	f
+mos6502_step_result	emu/include/mos6502/mos6502.h	/^typedef enum mos6502_step_result {$/;"	g
+mos6502_step_result_t	emu/include/mos6502/mos6502.h	/^} PACKED mos6502_step_result_t;$/;"	t	typeref:enum:mos6502_step_result
+mos6502_t	emu/include/mos6502/mos6502.h	/^} mos6502_t;$/;"	t	typeref:struct:mos6502
+move_cursor	emu/nes/ppu.c	/^move_cursor (ppu_t * nonnull ppu)$/;"	f	file:
+n	emu/include/mos6502/mos6502.h	/^		bool n : 1; \/\/ negative flag$/;"	m	struct:stat_reg::__anon2
+name	lib/paravirt.s	/^	name:$/;"	l
+nbb_chram_size	emu/ines.c	/^	uint8_t nbb_chram_size : 4;$/;"	m	struct:ines2_flags11	file:
+nbb_wram_size	emu/ines.c	/^	uint8_t nbb_wram_size : 4;$/;"	m	struct:ines2_flags10	file:
+ndevices	emu/include/reset_manager.h	/^	size_t ndevices;$/;"	m	struct:reset_manager
+next_dec	emu/shell.c	/^next_dec (char ** line_ptr, size_t * result)$/;"	f	file:
+next_hex	emu/shell.c	/^next_hex (char ** line_ptr, size_t * result)$/;"	f	file:
+next_scanline_has_sprite0	emu/include/nes/ppu.h	/^		bool next_scanline_has_sprite0 : 1;$/;"	m	struct:ppu::__anon10
+next_token	emu/shell.c	/^next_token (char ** line_ptr)$/;"	f	file:
+nmi	lib/crt0.s	/^nmi:$/;"	l
+nmi_en	emu/include/nes/ppu.h	/^		bool nmi_en          : 1;$/;"	m	struct:ppu::__anon10
+nonnull	emu/include/base.h	66;"	d
+nonnull	emu/include/base.h	69;"	d
+nrom_setup	emu/nes/nrom.c	/^nrom_setup (rominfo_t * info)$/;"	f
+nt_addr	emu/nes/ppu.c	/^nt_addr (ppu_t * nonnull ppu)$/;"	f	file:
+nt_baseaddr	emu/include/nes/ppu.h	/^			ppu_nt_baseaddr_t nt_baseaddr : 2;$/;"	m	struct:ppu::__anon11::__anon12
+nt_latch	emu/include/nes/ppu.h	/^	uint8_t bmp_latch[2], nt_latch, attr_latch;$/;"	m	struct:ppu
+ntimers	emu/include/timekeeper.h	/^	size_t ntimers;$/;"	m	struct:timekeeper
+nullable	emu/include/base.h	67;"	d
+nullable	emu/include/base.h	70;"	d
+oam	emu/include/nes/ppu.h	/^		uint8_t oam[sizeof(ppu_sprite_t) * 64];$/;"	m	union:ppu::__anon15
+oam_addr	emu/include/nes/ppu.h	/^	uint8_t oam_addr;$/;"	m	struct:ppu
+obj	emu/include/membus.h	/^		void * nullable \/*strong*\/ obj;$/;"	m	struct:membus::__anon3
+obj	emu/include/membus.h	/^		void * nullable \/*strong*\/ obj;$/;"	m	struct:membus::__anon5
+obj	emu/include/timekeeper.h	/^		void * nullable \/*strong*\/ obj;$/;"	m	struct:timekeeper::__anon1
+offset_p1	emu/include/membus.h	/^		size_t offset_p1; \/\/ offset + 1$/;"	m	struct:membus::__anon3
+offset_p1	emu/include/membus.h	/^		size_t offset_p1; \/\/ offset + 1$/;"	m	struct:membus::__anon5
+opcode	emu/include/mos6502/mos6502.h	/^	uint8_t opcode;$/;"	m	struct:decode_info
+overflow_dotnum	emu/include/nes/ppu.h	/^	size_t overflow_dotnum;$/;"	m	struct:ppu
+p	emu/include/mos6502/mos6502.h	/^	stat_reg_t p; \/\/ processor status word$/;"	m	struct:mos6502
+palette	emu/include/nes/ppu.h	/^	uint8_t palette : 2;$/;"	m	struct:ppu_spriteattr
+palette_color	emu/include/nes/ppu.h	/^	uint8_t palette_color : 6;$/;"	m	struct:ppu_pixel
+palette_loc	emu/nes/ppu.c	/^palette_loc (ppu_t * nonnull ppu, uint16_t addr)$/;"	f	file:
+palette_mem	emu/include/nes/ppu.h	/^	uint8_t palette_mem[32];$/;"	m	struct:ppu
+palette_srgb	emu/include/nes/ppu.h	/^	uint8_t palette_srgb[512][3];$/;"	m	struct:ppu
+paravirt_argc	emu/include/mos6502/mos6502.h	/^	uint16_t paravirt_argc;$/;"	m	struct:mos6502
+paravirt_argv	emu/include/mos6502/mos6502.h	/^	char * nullable * nonnull \/*unowned*\/ paravirt_argv;$/;"	m	struct:mos6502
+pc	emu/include/mos6502/mos6502.h	/^	uint16_t pc;  \/\/ program counter$/;"	m	struct:mos6502
+playchoice_10	emu/ines.c	/^	bool playchoice_10 : 1;$/;"	m	struct:flags7	file:
+pop_parm	emu/mos6502/vmcall.c	/^pop_parm (mos6502_t * cpu, uint16_t incr)$/;"	f	file:
+ppu	emu/include/ines.h	/^	ppu_t * nonnull \/*unowned*\/ ppu;$/;"	m	struct:rominfo
+ppu	emu/include/nes/ppu.h	/^typedef struct ppu {$/;"	s
+ppu	emu/nes/sxrom.c	/^	ppu_t * nonnull \/*unowned*\/ ppu;$/;"	m	struct:sxrom	file:
+ppu_chr_baseaddr	emu/include/nes/ppu.h	/^typedef enum ppu_chr_baseaddr {$/;"	g
+ppu_chr_baseaddr_t	emu/include/nes/ppu.h	/^} PACKED ppu_chr_baseaddr_t;$/;"	t	typeref:enum:ppu_chr_baseaddr
+ppu_map	emu/nes/ppu.c	/^ppu_map (ppu_t * ppu)$/;"	f
+ppu_new	emu/nes/ppu.c	/^ppu_new (reset_manager_t * rm, mos6502_t * cpu, int scale)$/;"	f
+ppu_nt_baseaddr	emu/include/nes/ppu.h	/^typedef enum ppu_nt_baseaddr {$/;"	g
+ppu_nt_baseaddr_t	emu/include/nes/ppu.h	/^} PACKED ppu_nt_baseaddr_t;$/;"	t	typeref:enum:ppu_nt_baseaddr
+ppu_pixel	emu/include/nes/ppu.h	/^typedef struct ppu_pixel {$/;"	s
+ppu_pixel_t	emu/include/nes/ppu.h	/^} PACKED ppu_pixel_t;$/;"	t	typeref:struct:ppu_pixel
+ppu_sprite	emu/include/nes/ppu.h	/^typedef struct ppu_sprite {$/;"	s
+ppu_sprite_t	emu/include/nes/ppu.h	/^} ppu_sprite_t;$/;"	t	typeref:struct:ppu_sprite
+ppu_spriteattr	emu/include/nes/ppu.h	/^typedef struct ppu_spriteattr {$/;"	s
+ppu_spriteattr_t	emu/include/nes/ppu.h	/^} ppu_spriteattr_t;$/;"	t	typeref:struct:ppu_spriteattr
+ppu_spritesize	emu/include/nes/ppu.h	/^typedef enum ppu_spritesize {$/;"	g
+ppu_spritesize_t	emu/include/nes/ppu.h	/^} ppu_spritesize_t;$/;"	t	typeref:enum:ppu_spritesize
+ppu_t	emu/include/nes/ppu.h	/^} ppu_t;$/;"	t	typeref:struct:ppu
+ppu_vram_addr_inc	emu/include/nes/ppu.h	/^typedef enum ppu_vram_addr_inc {$/;"	g
+ppu_vram_addr_inc_t	emu/include/nes/ppu.h	/^} PACKED ppu_vram_addr_inc_t;$/;"	t	typeref:enum:ppu_vram_addr_inc
+present_frame	emu/nes/ppu.c	/^present_frame (ppu_t * nonnull ppu)$/;"	f	file:
+prgrom	emu/include/ines.h	/^	memory_t * nullable \/*unowned*\/ prgrom;$/;"	m	struct:rominfo
+prgrom	emu/nes/sxrom.c	/^	memory_t * nonnull \/*strong*\/ prgrom;$/;"	m	struct:sxrom	file:
+prgrom_fixation	emu/include/nes/mmc1.h	/^		mmc1_prgrom_fixation_t prgrom_fixation : 1;$/;"	m	struct:mmc1_reg0::__anon16
+prgrom_size	emu/ines.c	/^	uint8_t prgrom_size;$/;"	m	struct:common_header	file:
+prgrom_size_nib	emu/ines.c	/^	uint8_t prgrom_size_nib : 4;$/;"	m	struct:ines2_flags9	file:
+prgrom_switching	emu/include/nes/mmc1.h	/^		mmc1_prgrom_switching_t prgrom_switching : 1;$/;"	m	struct:mmc1_reg0::__anon16
+print_pc_update	emu/shell.c	/^print_pc_update (mos6502_t * cpu)$/;"	f	file:
+print_usage	emu/main.c	/^print_usage (char ** argv)$/;"	f	file:
+print_usage	emu/shell.c	/^print_usage (void)$/;"	f	file:
+print_version	emu/main.c	/^print_version (void)$/;"	f	file:
+rc	emu/include/rc.h	/^typedef struct rc {$/;"	s
+rc_alloc	emu/rc.c	/^rc_alloc (size_t size, void * deinit)$/;"	f
+rc_release	emu/rc.c	/^rc_release (void * obj)$/;"	f
+rc_retain	emu/rc.c	/^rc_retain (void * obj)$/;"	f
+rc_t	emu/include/rc.h	/^} rc_t;$/;"	t	typeref:struct:rc
+rc_weak_check	emu/rc.c	/^rc_weak_check (void ** obj_ptr)$/;"	f
+rc_weak_release	emu/rc.c	/^rc_weak_release (void * nonnull obj)$/;"	f
+rc_weak_retain	emu/rc.c	/^rc_weak_retain (void * obj)$/;"	f
+read	emu/nes/io_reg.c	/^read (io_reg_t * io, uint16_t addr, uint8_t * lanemask)$/;"	f	file:
+read	emu/nes/ppu.c	/^read (ppu_t * nonnull ppu, uint16_t addr)$/;"	f	file:
+read16	emu/mos6502/mos6502.c	/^read16 (mos6502_t * cpu, uint16_t addr)$/;"	f	file:
+read8	emu/mos6502/mos6502.c	/^read8 (mos6502_t * cpu, uint16_t addr)$/;"	f	file:
+read_mappings	emu/include/membus.h	/^	} read_mappings[MEMBUS_NPAGES];$/;"	m	struct:membus	typeref:struct:membus::__anon3
+read_zp16	emu/mos6502/vmcall.c	/^read_zp16 (mos6502_t * cpu, uint8_t addr)$/;"	f	file:
+reg0	emu/include/nes/mmc1.h	/^	mmc1_reg0_t reg0;$/;"	m	struct:mmc1
+reg1	emu/include/nes/mmc1.h	/^	uint8_t reg1;$/;"	m	struct:mmc1
+reg2	emu/include/nes/mmc1.h	/^	uint8_t reg2;$/;"	m	struct:mmc1
+reg3	emu/include/nes/mmc1.h	/^	mmc1_reg3_t reg3;$/;"	m	struct:mmc1
+reg_write	emu/nes/sxrom.c	/^reg_write (sxrom_t * cart, size_t addr, uint8_t val)$/;"	f	file:
+remap	emu/nes/sxrom.c	/^remap (sxrom_t * cart)$/;"	f	file:
+remove_bp	emu/shell.c	/^remove_bp (uint16_t bp_addr)$/;"	f	file:
+rend	emu/include/nes/ppu.h	/^	struct SDL_Renderer * nonnull \/*owned*\/ rend;$/;"	m	struct:ppu	typeref:struct:ppu::nonnull
+reserved	emu/ines.c	/^	uint8_t reserved : 6;$/;"	m	struct:ines2_flags12	file:
+reserved	emu/ines.c	/^	uint8_t reserved : 7;$/;"	m	struct:ines1_flags9	file:
+reset	emu/membus.c	/^reset (membus_t * nonnull bus)$/;"	f	file:
+reset	emu/memory.c	/^reset (memory_t * memory)$/;"	f	file:
+reset	emu/nes/io_reg.c	/^reset (io_reg_t * io)$/;"	f	file:
+reset	emu/nes/ppu.c	/^reset (ppu_t * nonnull ppu)$/;"	f	file:
+reset	emu/nes/sxrom.c	/^reset (sxrom_t * cart)$/;"	f	file:
+reset	emu/timekeeper.c	/^reset (timekeeper_t * tk)$/;"	f	file:
+reset_manager	emu/include/reset_manager.h	/^typedef struct reset_manager {$/;"	s
+reset_manager_add_device	emu/reset_manager.c	/^reset_manager_add_device (reset_manager_t * rm, void * dev, void * handler)$/;"	f
+reset_manager_issue_reset	emu/reset_manager.c	/^reset_manager_issue_reset (reset_manager_t * rm)$/;"	f
+reset_manager_new	emu/reset_manager.c	/^reset_manager_new (void)$/;"	f
+reset_manager_t	emu/include/reset_manager.h	/^} reset_manager_t;$/;"	t	typeref:struct:reset_manager
+reset_shiftreg	emu/nes/mmc1.c	/^reset_shiftreg (mmc1_t * mmc1)$/;"	f	file:
+rm	emu/include/ines.h	/^	reset_manager_t * nonnull \/*unowned*\/ rm;$/;"	m	struct:rominfo
+rominfo	emu/include/ines.h	/^typedef struct rominfo {$/;"	s
+rominfo_t	emu/include/ines.h	/^} rominfo_t;$/;"	t	typeref:struct:rominfo
+run_shell	emu/shell.c	/^run_shell (mos6502_t * cpu, bool interactive)$/;"	f
+scanline_has_sprite0	emu/include/nes/ppu.h	/^		bool scanline_has_sprite0      : 1;$/;"	m	struct:ppu::__anon10
+set_ax	emu/mos6502/vmcall.c	/^set_ax (mos6502_t * cpu, uint16_t val)$/;"	f	file:
+set_delayed_regs	emu/nes/ppu.c	/^set_delayed_regs (ppu_t * nonnull ppu)$/;"	f	file:
+set_strobe	emu/nes/io_reg.c	/^set_strobe (io_reg_t * io, bool val)$/;"	f	file:
+setup_common	emu/ines.c	/^setup_common (reset_manager_t * nonnull rm,$/;"	f	file:
+shift_shiftregs	emu/nes/ppu.c	/^shift_shiftregs (ppu_t * nonnull ppu)$/;"	f	file:
+shiftreg	emu/include/nes/mmc1.h	/^	uint8_t shiftreg;$/;"	m	struct:mmc1
+sigint_action	emu/shell.c	/^static const struct sigaction sigint_action = {.sa_handler = handle_sigint};$/;"	v	typeref:struct:sigaction	file:
+sigint_received	emu/shell.c	/^static bool sigint_received;$/;"	v	file:
+size	emu/include/memory.h	/^	size_t size;$/;"	m	struct:memory
+slnum	emu/include/nes/ppu.h	/^	size_t slnum;$/;"	m	struct:ppu
+sp	emu/include/mos6502/mos6502.h	/^	uint8_t sp;   \/\/ stack pointer$/;"	m	struct:mos6502
+spellings	emu/shell.c	/^	const char * const * spellings;$/;"	m	struct:command_descriptor	file:
+sprite0_hit	emu/include/nes/ppu.h	/^		bool sprite0_hit     : 1;$/;"	m	struct:ppu::__anon10
+sprite0_hit_shouldset	emu/include/nes/ppu.h	/^		bool sprite0_hit_shouldset : 1;$/;"	m	struct:ppu::__anon10
+sprite_attrs	emu/include/nes/ppu.h	/^	ppu_spriteattr_t sprite_attrs[8];$/;"	m	struct:ppu
+sprite_bmp_shiftregs	emu/include/nes/ppu.h	/^	uint8_t sprite_bmp_shiftregs[8][2];$/;"	m	struct:ppu
+sprite_chr_baseaddr	emu/include/nes/ppu.h	/^		ppu_chr_baseaddr_t sprite_chr_baseaddr : 1;$/;"	m	struct:ppu::__anon10
+sprite_en	emu/include/nes/ppu.h	/^			bool sprite_en      : 1;$/;"	m	struct:ppu::__anon8::__anon9
+sprite_memfetch	emu/nes/ppu.c	/^sprite_memfetch (ppu_t * nonnull ppu)$/;"	f	file:
+sprite_overflow	emu/include/nes/ppu.h	/^		bool sprite_overflow : 1;$/;"	m	struct:ppu::__anon10
+sprite_xs	emu/include/nes/ppu.h	/^	uint8_t sprite_xs[8];$/;"	m	struct:ppu
+spriteeval	emu/nes/ppu.c	/^spriteeval (ppu_t * nonnull ppu)$/;"	f	file:
+sprites	emu/include/nes/ppu.h	/^		ppu_sprite_t sprites[64];$/;"	m	union:ppu::__anon15
+spritesize	emu/include/nes/ppu.h	/^		ppu_spritesize_t spritesize            : 1;$/;"	m	struct:ppu::__anon10
+start	lib/crt0.s	/^start:$/;"	l
+stat_reg	emu/include/mos6502/mos6502.h	/^typedef union stat_reg {$/;"	u
+stat_reg_t	emu/include/mos6502/mos6502.h	/^} stat_reg_t;$/;"	t	typeref:union:stat_reg
+step	emu/nes/ppu.c	/^step (ppu_t * nonnull ppu)$/;"	f	file:
+strong_count	emu/include/rc.h	/^	size_t strong_count;$/;"	m	struct:rc
+submapper	emu/ines.c	/^	uint8_t submapper : 4;$/;"	m	struct:ines2_flags8	file:
+sxrom	emu/nes/sxrom.c	/^typedef struct sxrom {$/;"	s	file:
+sxrom_setup	emu/nes/sxrom.c	/^sxrom_setup (rominfo_t * info)$/;"	f
+sxrom_t	emu/nes/sxrom.c	/^} sxrom_t;$/;"	t	typeref:struct:sxrom	file:
+t_pause	emu/include/timekeeper.h	/^	uint32_t t_pause;$/;"	m	struct:timekeeper
+t_ref	emu/include/timekeeper.h	/^	uint32_t t_ref;$/;"	m	struct:timekeeper
+tay	test/test.s	/^tay$/;"	l
+tex	emu/include/nes/ppu.h	/^	struct SDL_Texture * nonnull \/*owned*\/ tex;$/;"	m	struct:ppu	typeref:struct:ppu::nonnull
+texdata	emu/include/nes/ppu.h	/^	uint8_t * nonnull \/*unowned*\/ texdata;$/;"	m	struct:ppu
+texpitch	emu/include/nes/ppu.h	/^	size_t texpitch;$/;"	m	struct:ppu
+tile	emu/include/nes/ppu.h	/^	uint8_t tile;$/;"	m	struct:ppu_sprite
+timekeeper	emu/include/timekeeper.h	/^typedef struct timekeeper {$/;"	s
+timekeeper_add_timer	emu/timekeeper.c	/^timekeeper_add_timer (timekeeper_t * tk, void * timer, void * fire, uint64_t * countdown)$/;"	f
+timekeeper_advance_clk	emu/timekeeper.c	/^timekeeper_advance_clk (timekeeper_t * tk, uint64_t ncycles)$/;"	f
+timekeeper_new	emu/timekeeper.c	/^timekeeper_new (reset_manager_t * rm, double clk_period)$/;"	f
+timekeeper_pause	emu/timekeeper.c	/^timekeeper_pause (timekeeper_t * tk)$/;"	f
+timekeeper_resume	emu/timekeeper.c	/^timekeeper_resume (timekeeper_t * tk)$/;"	f
+timekeeper_sync	emu/timekeeper.c	/^timekeeper_sync (timekeeper_t * tk)$/;"	f
+timekeeper_t	emu/include/timekeeper.h	/^} timekeeper_t;$/;"	t	typeref:struct:timekeeper
+timers	emu/include/timekeeper.h	/^	} timers[TIMEKEEPER_MAX_TIMERS];$/;"	m	struct:timekeeper	typeref:struct:timekeeper::__anon1
+tk	emu/include/mos6502/mos6502.h	/^	struct timekeeper * nonnull \/*strong*\/ tk;$/;"	m	struct:mos6502	typeref:struct:mos6502::nonnull
+tmp_coarse_xscroll	emu/include/nes/ppu.h	/^			uint8_t tmp_coarse_xscroll        : 5;$/;"	m	struct:ppu::__anon13::__anon14
+tmp_coarse_yscroll	emu/include/nes/ppu.h	/^			uint8_t tmp_coarse_yscroll        : 5;$/;"	m	struct:ppu::__anon13::__anon14
+tmp_fine_yscroll	emu/include/nes/ppu.h	/^			uint8_t tmp_fine_yscroll          : 3;$/;"	m	struct:ppu::__anon13::__anon14
+tmp_nt_baseaddr	emu/include/nes/ppu.h	/^			ppu_nt_baseaddr_t tmp_nt_baseaddr : 2;$/;"	m	struct:ppu::__anon13::__anon14
+tmp_vram_addr	emu/include/nes/ppu.h	/^		uint16_t tmp_vram_addr;$/;"	m	union:ppu::__anon13
+trainer_present	emu/ines.c	/^	bool trainer_present : 1;$/;"	m	struct:flags6	file:
+try_fopen	emu/fileio.c	/^try_fopen (const char * path, const char * mode)$/;"	f
+try_fread	emu/fileio.c	/^try_fread (FILE * f, const char * path, void * dest, size_t nbytes)$/;"	f
+try_next_dec	emu/shell.c	/^try_next_dec (char ** line_ptr, size_t * result)$/;"	f	file:
+try_next_hex	emu/shell.c	/^try_next_hex (char ** line_ptr, size_t * result)$/;"	f	file:
+tv_type	emu/ines.c	/^	tv_type_t tv_type : 1;$/;"	m	struct:ines1_flags9	file:
+tv_type	emu/ines.c	/^	tv_type_t tv_type : 1;$/;"	m	struct:ines2_flags12	file:
+tv_type	emu/ines.c	/^typedef enum tv_type {$/;"	g	file:
+tv_type_t	emu/ines.c	/^} PACKED tv_type_t;$/;"	t	typeref:enum:tv_type	file:
+uint8_t	emu/include/nes/ppu.h	/^	uint8_t : 3;$/;"	m	struct:ppu_spriteattr
+universal	emu/ines.c	/^	bool universal : 1;$/;"	m	struct:ines2_flags12	file:
+update_vram_addr	emu/nes/ppu.c	/^update_vram_addr (ppu_t * nonnull ppu)$/;"	f	file:
+usage	emu/shell.c	/^	const char * usage;$/;"	m	struct:command_descriptor	file:
+v	emu/include/mos6502/mos6502.h	/^		bool v : 1; \/\/ overflow flag$/;"	m	struct:stat_reg::__anon2
+val	emu/include/mos6502/mos6502.h	/^	uint8_t val;$/;"	m	union:stat_reg
+val	emu/include/nes/mmc1.h	/^	uint8_t val;$/;"	m	union:mmc1_reg0
+val	emu/include/nes/mmc1.h	/^	uint8_t val;$/;"	m	union:mmc1_reg3
+vblank	emu/include/nes/ppu.h	/^		bool vblank          : 1;$/;"	m	struct:ppu::__anon10
+version	emu/ines.c	/^	uint8_t version : 2;$/;"	m	struct:flags7	file:
+verti_flipped	emu/include/nes/ppu.h	/^	bool verti_flipped : 1;$/;"	m	struct:ppu_spriteattr
+vram	emu/include/ines.h	/^	memory_t * nullable \/*unowned*\/ vram;$/;"	m	struct:rominfo
+vram	emu/nes/sxrom.c	/^	memory_t * nonnull \/*strong*\/ vram;$/;"	m	struct:sxrom	file:
+vram_addr	emu/include/nes/ppu.h	/^		uint16_t vram_addr;$/;"	m	union:ppu::__anon11
+vram_addr_inc	emu/include/nes/ppu.h	/^		ppu_vram_addr_inc_t vram_addr_inc      : 1;$/;"	m	struct:ppu::__anon10
+vs_unisystem	emu/ines.c	/^	bool vs_unisystem : 1;$/;"	m	struct:flags7	file:
+weak_count	emu/include/rc.h	/^	size_t weak_count;$/;"	m	struct:rc
+win	emu/include/nes/ppu.h	/^	struct SDL_Window * nonnull \/*owned*\/ win;$/;"	m	struct:ppu	typeref:struct:ppu::nonnull
+wram	emu/include/ines.h	/^	memory_t * nullable \/*unowned*\/ wram;$/;"	m	struct:rominfo
+wram	emu/nes/sxrom.c	/^	memory_t * nullable \/*strong*\/ wram;$/;"	m	struct:sxrom	file:
+wram_disabled	emu/include/nes/mmc1.h	/^		bool wram_disabled : 1;$/;"	m	struct:mmc1_reg3::__anon17
+wram_present	emu/ines.c	/^	bool wram_present : 1;$/;"	m	struct:flags6	file:
+wram_size	emu/ines.c	/^	uint8_t wram_size;$/;"	m	struct:ines1_header	file:
+write	emu/nes/io_reg.c	/^write (io_reg_t * io, uint16_t addr, uint8_t val)$/;"	f	file:
+write	emu/nes/ppu.c	/^write (ppu_t * nonnull ppu, uint16_t addr, uint8_t val)$/;"	f	file:
+write16	emu/mos6502/vmcall.c	/^write16 (mos6502_t * cpu, uint16_t addr, uint16_t val)$/;"	f	file:
+write8	emu/mos6502/mos6502.c	/^write8 (mos6502_t * cpu, uint16_t addr, uint8_t val)$/;"	f	file:
+write_mappings	emu/include/membus.h	/^	} write_mappings[MEMBUS_NPAGES];$/;"	m	struct:membus	typeref:struct:membus::__anon5
+write_toggle	emu/include/nes/ppu.h	/^		bool write_toggle    : 1;$/;"	m	struct:ppu::__anon10
+writeable	emu/include/memory.h	/^	bool writeable;$/;"	m	struct:memory
+x	emu/include/mos6502/mos6502.h	/^	uint8_t x;    \/\/ GPR 1$/;"	m	struct:mos6502
+xpos	emu/include/nes/ppu.h	/^	uint8_t xpos;$/;"	m	struct:ppu_sprite
+y	emu/include/mos6502/mos6502.h	/^	uint8_t y;    \/\/ GPR 2$/;"	m	struct:mos6502
+ypos	emu/include/nes/ppu.h	/^	uint8_t ypos;$/;"	m	struct:ppu_sprite
+z	emu/include/mos6502/mos6502.h	/^		bool z : 1; \/\/ zero flag$/;"	m	struct:stat_reg::__anon2
