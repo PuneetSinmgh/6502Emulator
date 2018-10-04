@@ -1,4 +1,3 @@
-
 #include <rc.h>
 #include <base.h>
 #include <membus.h>
@@ -259,7 +258,6 @@ mos6502_step_result_t
 mos6502_step (mos6502_t * cpu){
   uint8_t opcode = read8(cpu, cpu->pc);
   decode_info_t decode_info;
-  printf("opcode : %x\n", opcode);
   switch(opcode){
   case 0x80:
     decode_info.cpu = cpu;
@@ -886,9 +884,11 @@ ADC_IDX_IDR_handler(mos6502_t *cpu){
 
 void
 ADC_IDR_IDX_handler(mos6502_t *cpu){
-  uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint8_t value = read8(cpu, operand);
-  uint16_t effective_addr = value + (uint16_t)cpu->y;
+  uint8_t first = read8(cpu, cpu->pc + 1);
+  uint8_t secnd = first + 1;
+  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t hi = read8(cpu, secnd);
+  uint16_t effective_addr = (hi << 8) | lo;
   uint8_t effective_value = read8(cpu, effective_addr);
   uint16_t result = cpu->a + effective_value;
   /* Overflow */
@@ -919,7 +919,8 @@ ADC_IDR_IDX_handler(mos6502_t *cpu){
 void
 AND_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, (cpu->pc)+(uint8_t)1);
-  uint16_t res = (uint16_t)(cpu->a & operand);
+  uint8_t res = (cpu->a & operand);
+  cpu->a = res;
   cpu->p.z = !res ? 1 : cpu->p.z;
   cpu->p.n = (res >> 7) & 0x1 ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x2;
@@ -928,7 +929,8 @@ void
 AND_ZP_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, (cpu->pc)+(uint8_t)1);
   uint8_t value = read8(cpu, (uint16_t)operand);
-  uint16_t res = (uint16_t)(cpu->a & value);
+  uint8_t res = (cpu->a & value);
+  cpu->a = res;
   cpu->p.z = !res ? 1: cpu->p.z;
   cpu->p.n = (res >> 7) & 0x1 ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x2;
@@ -937,7 +939,8 @@ void
 AND_ZPX_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc+(uint8_t)1);
   uint8_t value = read8(cpu, (uint16_t)(operand+cpu->x));
-  uint16_t res = (value) & cpu->a;
+  uint8_t res = (value) & cpu->a;
+  cpu->a = res;
   cpu->p.z = !res ? 1 : cpu->p.z;
   cpu->p.n = (res >> 7) & 0x1 ? 1 : cpu->p.n; 
   cpu->pc += (uint8_t)0x2;
@@ -946,7 +949,8 @@ void
 AND_ABS_handler(mos6502_t *cpu){
   uint16_t operand = read16(cpu, cpu->pc+1);
   uint8_t value = read8(cpu, operand);
-  uint16_t res = (value) & cpu->a;
+  uint8_t res = (value) & cpu->a;
+  cpu->a = res;
   cpu->p.z = !res ? 1: cpu->p.z;
   cpu->p.n = ( res >> 7 ) & 0x1 ? 1: cpu->p.n;;
   cpu->pc += (uint8_t)0x3;
@@ -955,7 +959,8 @@ void
 AND_ABSX_handler(mos6502_t *cpu){
   uint16_t operand = read16(cpu, cpu->pc+1);
   uint8_t value = read8(cpu, operand+cpu->x);
-  uint16_t res = (value) & cpu->a;
+  uint8_t res = (value) & cpu->a;
+  cpu->a =res;
   cpu->p.z = !res ? 1 : cpu->p.z;
   cpu->p.n = (res >> 7) & 0x1 ? 1: cpu->p.n;
   cpu->pc += (uint8_t)0x3;
@@ -965,7 +970,8 @@ void
 AND_ABSY_handler(mos6502_t *cpu){
   uint16_t operand = read16(cpu, cpu->pc+1);
   uint8_t value = read8(cpu, operand+cpu->y);
-  uint16_t res = (value) & cpu->a;
+  uint8_t res = (value) & cpu->a;
+  cpu->a = res;
   cpu->p.z = !res ? 1: cpu->p.z;
   cpu->p.n = (res >> 7) & 0x1 ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x3;
@@ -976,6 +982,7 @@ AND_IDX_IDR_handler(mos6502_t *cpu){
   uint16_t effective_addr = (uint16_t)(read8(cpu, operand) + cpu->y);
   uint8_t value = (read8(cpu, effective_addr));
   uint8_t res = (value) & cpu->a;
+  cpu->a = res;
   cpu->p.z = !res ? 1 : cpu->p.z;
   cpu->p.n = (res >> 7) & 0x1 ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x2;
@@ -983,11 +990,14 @@ AND_IDX_IDR_handler(mos6502_t *cpu){
 
 void
 AND_IDR_IDX_handler(mos6502_t *cpu){
-  uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint8_t value = (uint16_t)read8(cpu, (uint16_t)operand);
-  uint16_t effective_addr = value + (uint16_t)cpu->y;
+  uint8_t first = read8(cpu, cpu->pc + 1);
+  uint8_t secnd = first + 1;
+  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t hi = read8(cpu, secnd);
+  uint16_t effective_addr = (hi << 8) | lo;
   uint16_t effective_value = (uint16_t)read8(cpu, effective_addr);  
   uint8_t res = (effective_value) & cpu->a;
+  cpu->a = res;
   cpu->p.z = !res ? 1 : cpu->p.z;
   cpu->p.n = (res >> 7) & 0x1 ? 1: cpu->p.n;
   cpu->pc += (uint8_t)0x2;
@@ -1073,57 +1083,57 @@ BIT_ABS_handler(mos6502_t *cpu){
 void
 BCC_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc+1);
-  operand = convert(operand);
+  uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).c == 0){
-    cpu->pc = operand >> 7 ? cpu->pc - operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
 void
 BCS_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + 1);
-  operand = convert(operand);
+  uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).c == 1){
-    cpu->pc = operand >> 7 ? cpu->pc - operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
 void
 BEQ_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + 1);
-  operand = convert(operand);
+  uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).z == 1){
-    cpu->pc = operand >> 7 ? cpu->pc - operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
 
 void
 BMI_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + 1);
-  operand = convert(operand);
+  uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).n == 1){
-    cpu->pc = operand >> 7 ? cpu->pc - operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
 void
 BNE_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + 1);
-  operand = convert(operand);
+  uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).z == 0){
-    cpu->pc = operand >> 7 ? cpu->pc - operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
 
 void
 BPL_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + 1);
-  operand = convert(operand);
+  uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
-  if( (cpu->p).n == 0){
-    cpu->pc = operand >> 7 ? cpu->pc - operand : cpu->pc + operand;
+  if( cpu->p.n == 0){
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
 /*
@@ -1145,19 +1155,19 @@ BRK_handler(mos6502_t *cpu){
 void
 BVC_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + 1);
-  operand = convert(operand);
+  uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).v == 0){
-    cpu->pc = operand >> 7 ? cpu->pc - operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
 void
 BVS_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + 1);
-  operand = convert(operand);
+  uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).v == 1){
-    cpu->pc = operand >> 7 ? cpu->pc - operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
 void
@@ -1260,10 +1270,12 @@ CMP_IDX_IDR_handler(mos6502_t *cpu){
 }
 void
 CMP_IDR_IDX_handler(mos6502_t *cpu){
-  uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint16_t value = read16(cpu, operand);
-  uint16_t effective_addr = value + (uint16_t)cpu->y;
-  uint16_t effective_value = read16(cpu, effective_addr);
+  uint8_t first = read8(cpu, cpu->pc + 1);
+  uint8_t secnd = first + 1;
+  uint8_t lo = read8(cpu, first) + cpu->y ;
+  uint8_t hi = read8(cpu, secnd);
+  uint16_t effective_addr = (hi << 8) | lo;
+  uint8_t effective_value = read8(cpu, effective_addr);
   if( cpu->a >= effective_value){
     cpu->p.c = 1;
   }
@@ -1367,6 +1379,7 @@ DEX_handler(mos6502_t *cpu){
 void
 DEY_handler(mos6502_t *cpu){
   cpu->y--;
+  cpu->p.n = cpu->y >> 7 ? 1 : 0;
   cpu->pc += (uint8_t)0x1;
 }
 /*
@@ -1440,10 +1453,12 @@ EOR_IDX_IDR_handler(mos6502_t *cpu){
 }
 void
 EOR_IDR_IDX_handler(mos6502_t *cpu){
-  uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint16_t value = read16(cpu, operand);
-  uint16_t effective_addr = value + (uint16_t)cpu->y;
-  uint16_t effective_value = read16(cpu, effective_addr);
+  uint8_t first = read8(cpu, cpu->pc + 1);
+  uint8_t secnd = first + 1;
+  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t hi = read8(cpu, secnd);
+  uint16_t effective_addr = (hi << 8) | lo;
+  uint8_t effective_value = read8(cpu, effective_addr);
   cpu->p.z = !(effective_value) ? 1 : cpu->p.z;
   cpu->a = effective_value;
   cpu->pc += (uint8_t)0x2;
@@ -1513,7 +1528,7 @@ LDX_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, (cpu->pc)+(uint8_t)1);
   cpu->x = operand;
   cpu->p.z = cpu->x == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->x >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->x >> 7) ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x2;
 }
 void
@@ -1522,7 +1537,7 @@ LDX_ZP_handler(mos6502_t *cpu){
   uint8_t value = read8(cpu, operand);
   cpu->x = value;
   cpu->p.z = cpu->x == 0 ? 1: cpu->p.z;
-  cpu->p.n = (cpu->x >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->x >> 7) ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x2;
 }
 void
@@ -1531,7 +1546,7 @@ LDX_ZPY_handler(mos6502_t *cpu){
   uint8_t value = read8(cpu, operand + (uint16_t)cpu->y);
   cpu->x = value;
   cpu->p.z = cpu->x == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->x >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->x >> 7) ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x2;
 }
 void
@@ -1540,7 +1555,7 @@ LDX_ABS_handler(mos6502_t *cpu){
   uint8_t value = read8(cpu, operand);
   cpu->x = value;
   cpu->p.z = cpu->x == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->x >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->x >> 7) ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x3;
 }
 void
@@ -1549,7 +1564,7 @@ LDX_ABSY_handler(mos6502_t *cpu){
   uint8_t value = read8(cpu, operand+(uint16_t)cpu->y);
   cpu->x = value;
   cpu->p.z = cpu->x == 0 ? 1: cpu->p.z;
-  cpu->p.n = (cpu->x >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->x >> 7) ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x3;
 }
 
@@ -1558,19 +1573,16 @@ LDA_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, (cpu->pc)+(uint8_t)1);
   cpu->a = operand;
   cpu->p.z = cpu->a == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->a >> 7) & 0x1 ? 1 : cpu->p.n;
-  cpu->pc += (uint8_t)0x2;
+  cpu->p.n = (cpu->a >> 7) ? 1 : cpu->p.n;
+  cpu->pc += (uint8_t)0x2; 
 }
 void
 LDA_ZP_handler(mos6502_t *cpu){
-  printf("LDA\n");
   uint8_t operand = read8(cpu, cpu->pc+1);
-  printf("operand : %x\n", operand);
   uint8_t value = read8(cpu, (uint16_t)operand);
-  printf("value : %x\n", operand);
   cpu->a = value;
   cpu->p.z = cpu->a == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->a >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->a >> 7) ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x2;
 
 }
@@ -1580,7 +1592,7 @@ LDA_ZPX_handler(mos6502_t *cpu){
   uint8_t value = read8(cpu, (uint16_t)(operand+cpu->x));
   cpu->a = value;
   cpu->p.z = cpu->a == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->a >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->a >> 7) ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x2;
 }
 void
@@ -1589,7 +1601,7 @@ LDA_ABS_handler(mos6502_t *cpu){
   uint8_t value = read8(cpu, operand);
   cpu->a = value;
   cpu->p.z = cpu->a == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->a >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->a >> 7)? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x3;
 }
 void
@@ -1598,7 +1610,7 @@ LDA_ABSX_handler(mos6502_t *cpu){
   uint8_t value = read8(cpu, operand + cpu->x);
   cpu->a = value;
   cpu->p.z = cpu->a == 0 ? 1: cpu->p.z;
-  cpu->p.n = (cpu->a >> 7) & 0x1 ? 1 : cpu->p.n;
+  cpu->p.n = (cpu->a >> 7) ? 1 : cpu->p.n;
   cpu->pc += (uint8_t)0x3;
 }
 void
@@ -1607,7 +1619,7 @@ LDA_ABSY_handler(mos6502_t *cpu){
   uint8_t value = read8(cpu, operand + cpu->y);
   cpu->a = value;
   cpu->p.z = cpu->a == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->a >> 7) & 0x1 ? 1: cpu->p.n;
+  cpu->p.n = (cpu->a >> 7) ? 1: cpu->p.n;
   cpu->pc += (uint8_t)0x3;
 }
 void
@@ -1617,19 +1629,21 @@ LDA_IDX_IDR_handler(mos6502_t *cpu){
   uint16_t value = read16(cpu, effective_addr);
   cpu->a = value;
   cpu->p.z = cpu->a == 0 ? 1 : cpu->p.z;
-  cpu->p.n = (cpu->a >> 7) & 0x01 ? 1: cpu->p.n;
+  cpu->p.n = (cpu->a >> 7) ? 1: cpu->p.n;
   cpu->pc += (uint8_t)0x2;
   
 }
 void
 LDA_IDR_IDX_handler(mos6502_t *cpu){
-  uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint8_t value = read8(cpu, operand);
-  uint16_t effective_addr = value + (uint16_t)cpu->y;
+  uint8_t first = read8(cpu, cpu->pc + (uint8_t)1);
+  uint8_t secnd = first + 1;
+  uint8_t lo = read8(cpu, first);
+  uint8_t hi = read8(cpu, secnd);
+  uint16_t effective_addr = hi << 8 | (lo + cpu->y);
   uint8_t effective_value = read8(cpu, effective_addr);
   cpu->a = effective_value;
   cpu->p.z = cpu->a == 0 ? 1: cpu->p.z;
-  cpu->p.n = (cpu->a >> 7) & 0x01 ? 1: cpu->p.n;
+  cpu->p.n = (cpu->a >> 7) ? 1: cpu->p.n;
   cpu->pc += (uint8_t)0x2;
 }
 /*
@@ -1738,11 +1752,12 @@ STA_IDX_IDR_handler(mos6502_t *cpu){
 }
 void
 STA_IDR_IDX_handler(mos6502_t *cpu){
-  uint8_t operand = read8(cpu, cpu->pc +1);
-  uint8_t value = read8(cpu, operand);
-  uint16_t effective_addr = value + cpu->y;
+  uint8_t first = read8(cpu, cpu->pc+1);
+  uint8_t secnd = first + 1;
+  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t hi = read8(cpu, secnd);
+  uint16_t effective_addr = (hi << 8) | lo;
   write8(cpu, effective_addr, cpu->a);
-  printf(" effective add : %x\n", effective_addr);
   cpu->pc += (uint8_t)0x2;
 }
 
@@ -1898,9 +1913,11 @@ ORA_IDX_IDR_handler(mos6502_t *cpu){
 }
 void
 ORA_IDR_IDX_handler(mos6502_t *cpu){
-  uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint8_t value = read8(cpu, operand);
-  uint16_t effective_addr = value + (uint16_t)cpu->y;
+  uint8_t first = read8(cpu, cpu->pc + 1);
+  uint8_t secnd = first + 1;
+  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t hi = read8(cpu, secnd);
+  uint16_t effective_addr = (hi << 8) | lo;
   uint8_t effective_value = read8(cpu, effective_addr);
   cpu->a |= effective_value;
   cpu->p.n = (cpu->a  >> 7 ) & 0x1 ? 1: 0;
@@ -1914,18 +1931,14 @@ JSR_ABS_handler(mos6502_t *cpu){
   uint8_t hi = (cpu->pc + 3) >> 8;
   uint16_t effectivesp = cpu->sp | 0x0100; 
 
-  printf(" 1. cpu->sp : %x\n", effectivesp & 0xFF );
   write8(cpu, effectivesp , hi);
   write8(cpu, --effectivesp , lo);
-  printf(" 2. cpu->sp : %x\n", effectivesp & 0xFF);
   --effectivesp;
   cpu->sp = effectivesp & 0xFF;
-  printf(" The address in the sp : %x\n", (hi << 8) | lo);
   cpu->pc = read16(cpu, cpu->pc+1);
 }
 void
 PHA_handler(mos6502_t *cpu){
-  printf("cpu->sp value : %x\n", read8(cpu,cpu->sp));
   uint16_t effective_sp = 0x0100 | cpu->sp;
   write8(cpu, effective_sp--, cpu->a);
   cpu->sp = effective_sp & 0xFF;
@@ -1933,7 +1946,6 @@ PHA_handler(mos6502_t *cpu){
 }
 void
 PLA_handler(mos6502_t *cpu){
-  printf("cpu->sp : %x\n", cpu->sp);
   uint16_t effective_sp = 0x0100 | cpu->sp;
   cpu->a = read8(cpu, ++effective_sp);
   cpu->sp = effective_sp & 0xFF;
@@ -2000,12 +2012,10 @@ RTI_handler(mos6502_t *cpu){
 void
 RTS_handler(mos6502_t *cpu){
   uint16_t effective_sp = 0x0100 | cpu->sp;
-  printf("1. cpu->sp : %x\n", effective_sp);
   uint8_t lo = read8(cpu, ++effective_sp);
   uint8_t hi = read8(cpu, ++effective_sp);
   cpu->sp = effective_sp & 0xFF;
   uint16_t val = (hi << 8) | lo;
-  printf(" return address : %x\n", val);
   cpu->pc = val;
 }
 void
@@ -2318,11 +2328,13 @@ SBC_IDX_IDR_handler(mos6502_t *cpu){
 
 void
 SBC_IDR_IDX_handler(mos6502_t *cpu){
- uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
- uint8_t value = read8(cpu, operand);
- uint16_t effective_addr = value + (uint16_t)cpu->y;
- uint8_t effective_value = read8(cpu, effective_addr);
- uint16_t result = cpu->p.c ? cpu->a - effective_value :cpu->a -effective_value - 1;
+  uint8_t first = read8(cpu, cpu->pc + 1);
+  uint8_t secnd = first + 1;
+  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t hi = read8(cpu, secnd);
+  uint16_t effective_addr = (hi << 8 ) | lo;
+  uint8_t effective_value = read8(cpu, effective_addr);
+  uint16_t result = cpu->p.c ? cpu->a - effective_value :cpu->a -effective_value - 1;
  cpu->a = cpu->p.c ? cpu->a - effective_value : (cpu->a - effective_value) - 1;
  //Overflow
  if( result > 0x100) {
