@@ -915,10 +915,9 @@ ADC_IDX_IDR_handler(mos6502_t *cpu){
 
 void
 ADC_IDR_IDX_handler(mos6502_t *cpu){
-
   uint8_t first = read8(cpu, cpu->pc + (uint8_t)1);
   uint8_t second = first + 1;
-  uint8_t lo = read8(cpu,first) + cpu->y;
+  uint8_t lo = read8(cpu,first + cpu->y);
   uint8_t hi = read8(cpu, second);
   uint16_t effective_addr = (hi << 8) | lo;
   uint8_t value = read8(cpu, effective_addr);
@@ -1020,7 +1019,7 @@ void
 AND_IDR_IDX_handler(mos6502_t *cpu){
   uint8_t first = read8(cpu, cpu->pc + 1);
   uint8_t secnd = first + 1;
-  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t lo = read8(cpu, first + cpu->y);
   uint8_t hi = read8(cpu, secnd);
   uint16_t effective_addr = (hi << 8) | lo;
   uint16_t effective_value = (uint16_t)read8(cpu, effective_addr);  
@@ -1311,7 +1310,7 @@ void
 CMP_IDR_IDX_handler(mos6502_t *cpu){
   uint8_t first = read8(cpu, cpu->pc + 1);
   uint8_t secnd = first + 1;
-  uint8_t lo = read8(cpu, first) + cpu->y ;
+  uint8_t lo = read8(cpu, first + cpu->y);
   uint8_t hi = read8(cpu, secnd);
   uint16_t effective_addr = (hi << 8) | lo;
   uint8_t effective_value = read8(cpu, effective_addr);
@@ -1520,7 +1519,7 @@ void
 EOR_IDR_IDX_handler(mos6502_t *cpu){
   uint8_t first = read8(cpu, cpu->pc + 1);
   uint8_t secnd = first + 1;
-  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t lo = read8(cpu, first + cpu->y);
   uint8_t hi = read8(cpu, secnd);
   uint16_t effective_addr = (hi << 8) | lo;
   uint8_t effective_value = read8(cpu, effective_addr);
@@ -1595,7 +1594,7 @@ JMP_IDR_handler(mos6502_t *cpu){
   cpu->pc = value;
 }
 void
-CLD_handler(mos6502_t *cpu){
+CLD_handler(mos6502_t *cpu){ 
   cpu->p.d = 0;
   cpu->pc = cpu->pc + (uint8_t)0x1;
 }
@@ -1715,7 +1714,7 @@ void
 LDA_IDR_IDX_handler(mos6502_t *cpu){
   uint8_t first = read8(cpu, cpu->pc + (uint8_t)1);
   uint8_t secnd = first + 1;
-  uint8_t lo = read8(cpu, first);
+  uint8_t lo = read8(cpu, first + cpu->y);
   uint8_t hi = read8(cpu, secnd);
   uint16_t effective_addr = hi << 8 | (lo + cpu->y);
   uint8_t effective_value = read8(cpu, effective_addr);
@@ -1834,7 +1833,7 @@ void
 STA_IDR_IDX_handler(mos6502_t *cpu){
   uint8_t first = read8(cpu, cpu->pc+1);
   uint8_t secnd = first + 1;
-  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t lo = read8(cpu, first + cpu->y);
   uint8_t hi = read8(cpu, secnd);
   uint16_t effective_addr = (hi << 8) | lo;
   write8(cpu, effective_addr, cpu->a);
@@ -1997,7 +1996,7 @@ void
 ORA_IDR_IDX_handler(mos6502_t *cpu){
   uint8_t first = read8(cpu, cpu->pc + 1);
   uint8_t secnd = first + 1;
-  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t lo = read8(cpu, first + cpu->y);
   uint8_t hi = read8(cpu, secnd);
   uint16_t effective_addr = (hi << 8) | lo;
   uint8_t effective_value = read8(cpu, effective_addr);
@@ -2414,7 +2413,7 @@ void
 SBC_IDR_IDX_handler(mos6502_t *cpu){
   uint8_t first = read8(cpu, cpu->pc + 1);
   uint8_t secnd = first + 1;
-  uint8_t lo = read8(cpu, first) + cpu->y;
+  uint8_t lo = read8(cpu, first + cpu->y);
   uint8_t hi = read8(cpu, secnd);
   uint16_t effective_addr = (hi << 8 ) | lo;
   uint8_t effective_value = read8(cpu, effective_addr);
