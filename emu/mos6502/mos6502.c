@@ -155,7 +155,6 @@ void ROR_ZPX_handler(mos6502_t *);
 void ROR_ABS_handler(mos6502_t *);
 void ROR_ABSX_handler(mos6502_t *);
 void SBC_handler(mos6502_t *);
-//TODO
 void SBC_ZP_handler(mos6502_t *);
 void SBC_ZPX_handler(mos6502_t *);
 void SBC_ABS_handler(mos6502_t *);
@@ -776,7 +775,7 @@ ADC_handler(mos6502_t *cpu){
     cpu->a = value & 0xFF;
   }
   cpu->p.n = (cpu->a >> 7) & 0x01 ? 1 : 0;
-  cpu->p.z = cpu0->a == 0 ? 1 : 0;
+  cpu->p.z = cpu->a == 0 ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
 
@@ -942,18 +941,6 @@ ADC_IDR_IDX_handler(mos6502_t *cpu){
 
 }
 
-			
-/*
-  Mode           SYNTAX       HEX LEN TIM
-  Immediate     AND #$44      $29  2   2
-  Zero Page     AND $44       $25  2   3
-  Zero Page,X   AND $44,X     $35  2   4
-  Absolute      AND $4400     $2D  3   4
-  Absolute,X    AND $4400,X   $3D  3   4+
-  Absolute,Y    AND $4400,Y   $39  3   4+
-  Indirect,X    AND ($44,X)   $21  2   6
-  Indirect,Y    AND ($44),Y   $31  2   5+
-*/
 void
 AND_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, (cpu->pc)+(uint8_t)1);
@@ -1017,9 +1004,12 @@ AND_ABSY_handler(mos6502_t *cpu){
 void
 AND_IDX_IDR_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint16_t effective_addr = (uint16_t)(read8(cpu, operand) + cpu->y);
-  uint8_t value = (read8(cpu, effective_addr));
+  uint8_t lo = operand + cpu->x;
+  uint8_t hi = lo + 1;	
+  uint16_t effective_addr = (hi << 8) | lo;
+  uint8_t value = read8(cpu, effective_addr);
   uint8_t res = (value) & cpu->a;
+
   cpu->a = res;
   cpu->p.z = !res ? 1 : cpu->p.z;
   cpu->p.n = (res >> 7) & 0x1 ? 1 : cpu->p.n;
@@ -1101,7 +1091,6 @@ Absolute      BIT $4400     $2C  3   4
 */
 void
 BIT_handler(mos6502_t *cpu){
-
   uint8_t operand = read8(cpu, (cpu->pc)+(uint8_t)1);
   uint8_t value = membus_read(cpu->bus, operand);
   cpu->p.z = value & cpu->a ? 1 : 0;
@@ -1174,10 +1163,7 @@ BPL_handler(mos6502_t *cpu){
     cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
   }
 }
-/*
-MODE           SYNTAX       HEX LEN TIM
-Implied       BRK           $00  1   7
-*/
+
 void
 BRK_handler(mos6502_t *cpu){
   cpu->pc+=2; // In order to throw it way
@@ -1309,7 +1295,9 @@ CMP_ABSY_handler(mos6502_t *cpu){
 void
 CMP_IDX_IDR_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint16_t effective_addr = read16(cpu, operand) + cpu->y;
+  uint8_t lo = operand + cpu->x;
+  uint8_t hi = lo + 1;	
+  uint16_t effective_addr = (hi << 8) | lo;
   uint8_t value = read8(cpu, effective_addr);
   if( cpu->a >= value){
     cpu->p.c = 1;
@@ -1520,8 +1508,10 @@ EOR_ABSY_handler(mos6502_t *cpu){
 void
 EOR_IDX_IDR_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint16_t effective_addr = read16(cpu, operand) + cpu->y;
-  uint16_t value = read16(cpu, effective_addr) ^ cpu->a;
+  uint8_t lo = operand + cpu->x;
+  uint8_t hi = lo + 1;	
+  uint16_t effective_addr = (hi << 8) | lo;
+  uint8_t value = read8(cpu, effective_addr) ^ cpu->a;
   cpu->p.z = !value ? 1 : cpu->p.z;
   cpu-> a = value;
   cpu->pc += (uint8_t)0x2;
@@ -1711,8 +1701,10 @@ LDA_ABSY_handler(mos6502_t *cpu){
 void
 LDA_IDX_IDR_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint16_t effective_addr = read16(cpu, operand + cpu->x);
-  uint16_t value = read16(cpu, effective_addr);
+  uint8_t lo = operand + cpu->x;
+  uint8_t hi = lo + 1;	
+  uint16_t effective_addr = (hi << 8) | lo;
+  uint8_t value = read8(cpu, effective_addr);
   cpu->a = value;
   cpu->p.z = cpu->a == 0 ? 1 : cpu->p.z;
   cpu->p.n = (cpu->a >> 7) ? 1: cpu->p.n;
@@ -1832,7 +1824,9 @@ STA_ABSY_handler(mos6502_t *cpu){
 void
 STA_IDX_IDR_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint16_t effective_addr = read16(cpu, operand + cpu->x);
+  uint8_t lo = operand + cpu->x;
+  uint8_t hi = lo + 1;
+  uint8_t effective_addr = (hi << 8) | lo;
   write8(cpu, effective_addr,cpu->a);
   cpu->pc += (uint8_t)0x2;
 }
@@ -1990,8 +1984,10 @@ ORA_ABSY_handler(mos6502_t *cpu){
 void
 ORA_IDX_IDR_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
-  uint16_t effective_addr = read16(cpu, operand + cpu->x);
-  uint16_t value = read16(cpu, effective_addr);
+  uint8_t lo = operand + cpu->x;
+  uint8_t hi = lo + 1;
+  uint16_t effective_addr = (hi << 8) | lo;
+  uint8_t value = read8(cpu, effective_addr);
   cpu->a |= value;
   cpu->p.n = (cpu->a >> 7) &0x1 ? 1: 0;
   cpu->p.z = (cpu->a == 0)  ?1: 0;
@@ -2300,7 +2296,7 @@ SBC_handler(mos6502_t *cpu){
   
   cpu->a = cpu->p.c ? cpu->a - operand : (cpu->a - operand) - 1;
   //Overflow
-  if( result > 0x100) {
+  if( result > 0xFF) {
     cpu->p.c = 1;
     cpu->p.v = 1;
     cpu->a = (cpu->a - operand) - 0xFF;
@@ -2316,7 +2312,7 @@ SBC_ZP_handler(mos6502_t *cpu) {
   uint16_t result = ((cpu->a) - value);
   cpu->a = cpu->p.c ? cpu->a -value : (cpu->a - value) - 1;
   //Overflow
-  if( result > 0x100) {
+  if( result > 0xFF) {
     cpu->p.c = 1;
     cpu->p.v = 1;
     cpu->a = (cpu->a - value) - 0xFF;
@@ -2333,7 +2329,7 @@ SBC_ZPX_handler(mos6502_t *cpu){
   uint16_t result = cpu->a-value;
   cpu->a = cpu->p.c ? cpu->a - value : (cpu->a - value) - 1;
   //Overflow
-  if( result > 0x0100) {
+  if( result > 0xFF) {
     cpu->p.c = 1;
     cpu->p.v = 1;
     cpu->a = (cpu->a - value) - 0xFF;
@@ -2350,7 +2346,7 @@ SBC_ABS_handler(mos6502_t *cpu){
   uint16_t result = cpu->a - value;
   cpu->a = cpu->p.c ? cpu->a - value : (cpu->a - value) - 1;
   //Overflow
-  if( result > 0x100) {
+  if( result > 0xFF) {
     cpu->p.c = 1;
     cpu->p.v = 1;
     cpu->a = (cpu->a - value) - 0xFF;
@@ -2367,7 +2363,7 @@ SBC_ABSX_handler(mos6502_t *cpu){
  uint16_t result = cpu->p.c ? cpu->a - value : cpu->a - value - 1;
  cpu->a = cpu->p.c ? cpu->a - value : (cpu->a - value) - 1;
  //Overflow
- if( result > 0x0100) {
+ if( result > 0xFF) {
    cpu->p.c = 1;
    cpu->p.v = 1;
    cpu->a = (cpu->a - value) - 0xFF;
@@ -2384,7 +2380,7 @@ SBC_ABSY_handler(mos6502_t *cpu){
  uint16_t result = cpu->p.c ? cpu->a - value : cpu->a - value - 1;
  cpu->a = cpu->p.c ? cpu->a - value : (cpu->a - value) - 1;
  //Overflow
- if( result > 0x0100){
+ if( result > 0xFF){
    cpu->p.c = 1;
    cpu->p.v = 1;
    cpu->a = (cpu->a - value) - 0xFF;
@@ -2397,12 +2393,14 @@ SBC_ABSY_handler(mos6502_t *cpu){
 void
 SBC_IDX_IDR_handler(mos6502_t *cpu){
  uint8_t operand = read8(cpu, cpu->pc + (uint8_t)1);
- uint16_t effective_addr = read16(cpu, operand + cpu->x);
+ uint8_t lo = operand + cpu->x;
+ uint8_t hi = lo + 1;
+ uint16_t effective_addr = (hi << 8) | lo;
  uint8_t value = read8(cpu, effective_addr);
  uint16_t result = cpu->p.c ? cpu->a - value : cpu->a - value - 1;
  cpu->a = cpu->p.c ? cpu->a - value : (cpu->a - value) - 1;
  //Overflow
- if( result > 0x100) {
+ if( result > 0xFF) {
    cpu->p.c = 1;
    cpu->p.v = 1;
    cpu->a = (cpu->a - value) - 0xFF;
@@ -2423,7 +2421,7 @@ SBC_IDR_IDX_handler(mos6502_t *cpu){
   uint16_t result = cpu->p.c ? cpu->a - effective_value :cpu->a -effective_value - 1;
  cpu->a = cpu->p.c ? cpu->a - effective_value : (cpu->a - effective_value) - 1;
  //Overflow
- if( result > 0x100) {
+ if( result > 0xFF) {
    cpu->p.c = 1;
    cpu->p.v = 1;
    cpu->a = (cpu->a - effective_value) - 0xFF;
