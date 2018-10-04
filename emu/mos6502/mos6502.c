@@ -918,7 +918,7 @@ ADC_IDR_IDX_handler(mos6502_t *cpu){
 
   uint8_t first = read8(cpu, cpu->pc + (uint8_t)1);
   uint8_t second = first + 1;
-  uint8_t lo = read8(cpu,first) + cpu->y;
+  uint8_t lo = read8(cpu,first + cpu->y);
   uint8_t hi = read8(cpu, second);
   uint16_t effective_addr = (hi << 8) | lo;
   uint8_t value = read8(cpu, effective_addr);
