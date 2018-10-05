@@ -600,8 +600,8 @@ ASL_ZP_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc+(uint8_t)1);
   uint8_t value = read8(cpu, (uint16_t)operand);
   cpu->p.c = value >> 7;
-  write8(cpu, operand, (value << 1) & 0x00FF);
-  cpu->p.z = !((value << 1) & 0x00FF) ? 1: cpu->p.z;
+  write8(cpu, operand, (value << 1) & 0xFF);
+  cpu->p.z = !((value << 1) & 0xFF) ? 1: cpu->p.z;
   //  cpu->p.n = 
   cpu->pc +=(uint8_t)0x2;
 }
@@ -610,8 +610,8 @@ ASL_ZPX_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc+(uint8_t)1);
   uint8_t value = read8(cpu, (uint16_t)(operand + cpu->x));
   cpu->p.c = value >> 7;
-  write8(cpu, operand + cpu->x, (value << 1) & 0x00FF);
-  cpu->p.z = !((value << 1) & 0x00FF) ? 1 : cpu->p.z;
+  write8(cpu, operand + cpu->x, (value << 1) & 0xFF);
+  cpu->p.z = !((value << 1) & 0xFF) ? 1 : cpu->p.z;
   cpu->pc += (uint8_t)0x2;
 }
 void
@@ -619,8 +619,8 @@ ASL_ABS_handler(mos6502_t *cpu){
   uint16_t operand = read16(cpu, cpu->pc + (uint16_t)1);
   uint8_t value = read8(cpu, operand);
   cpu->p.c = value >> 7;
-  write8(cpu, operand, (value << 1) & 0x00FF);
-  cpu->p.z = !((value<<1) & 0x00FF) ? 1: cpu->p.z;
+  write8(cpu, operand, (value << 1) & 0xFF);
+  cpu->p.z = !((value<<1) & 0xFF) ? 1: cpu->p.z;
   cpu->pc += (uint8_t)0x3;
 }	
 void
@@ -628,8 +628,8 @@ ASL_ABSX_handler(mos6502_t *cpu){
   uint16_t operand = read16(cpu, cpu->pc + (uint16_t)1);
   uint8_t value = read8(cpu, operand + cpu->x);
   cpu->p.c = value >> 7;
-  write8(cpu, operand+(uint16_t)cpu->x, (value << 1) & 0x00FF);
-  cpu->p.z = !((value <<1)&0x00FF)? 1: cpu->p.z;
+  write8(cpu, operand+(uint16_t)cpu->x, (value << 1) & 0xFF);
+  cpu->p.z = !((value <<1)&0xFF)? 1: cpu->p.z;
   cpu->pc += (uint8_t)0x3;
   
 }
@@ -643,7 +643,7 @@ BIT_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, (cpu->pc)+(uint8_t)1);
   uint8_t value = membus_read(cpu->bus, operand);
   cpu->p.z = value & cpu->a ? 1 : 0;
-  cpu->p.n = (value >> 7) ? 1 : 0; // n is for the negative(sign) flag;
+  cpu->p.n = (value >> 7) & 0x01 ? 1 : 0; // n is for the negative(sign) flag;
   cpu->p.v = (value >> 6) & 0x01 ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -652,7 +652,7 @@ BIT_ABS_handler(mos6502_t *cpu){
   uint16_t operand = read16(cpu, cpu->pc + 1);
   uint8_t value = read8(cpu, operand);
   cpu->p.z = value & cpu-> a ? 1: 0;
-  cpu->p.n = (value >> 7) ? 1: 0;
+  cpu->p.n = (value >> 7) & 0x01 ? 1: 0;
   cpu->p.v = (value >> 6) & 0x01? 1: 0;
   cpu->pc += (uint8_t)0x3;
 }
@@ -662,7 +662,7 @@ BCC_handler(mos6502_t *cpu){
   uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).c == 0){
-    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand ;
   }
 }
 void
@@ -671,7 +671,8 @@ BCS_handler(mos6502_t *cpu){
   uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).c == 1){
-    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand ;
+
   }
 }
 void
@@ -680,7 +681,8 @@ BEQ_handler(mos6502_t *cpu){
   uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).z == 1){
-    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand ;
+
   }
 }
 
@@ -690,7 +692,8 @@ BMI_handler(mos6502_t *cpu){
   uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).n == 1){
-    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand ;
+
   }
 }
 void
@@ -699,7 +702,8 @@ BNE_handler(mos6502_t *cpu){
   uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( (cpu->p).z == 0){
-    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand ;
+
   }
 }
 
@@ -709,7 +713,8 @@ BPL_handler(mos6502_t *cpu){
   uint8_t new_operand = convert(operand);
   cpu->pc += 0x2;
   if( cpu->p.n == 0){
-    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand;
+    cpu->pc = operand >> 7 ? cpu->pc - new_operand : cpu->pc + operand ;
+
   }
 }
 
@@ -782,7 +787,7 @@ CMP_handler(mos6502_t *cpu){
   if( cpu->a >= operand){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->a - operand) >> 7 ? 1 : 0 ;
+  cpu->p.n = ((cpu->a - operand) >> 7) & 0x01 ? 1 : 0 ;
   cpu->p.z = cpu->a == operand ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -793,7 +798,7 @@ CMP_ZP_handler(mos6502_t *cpu){
   if ( cpu->a >= value) {
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->a - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->a - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->a == value ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -804,7 +809,7 @@ CMP_ZPX_handler(mos6502_t *cpu){
   if ( cpu->a >= value){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->a - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->a - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->a == value ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -815,7 +820,7 @@ CMP_ABS_handler(mos6502_t *cpu){
   if ( cpu-> a >= value){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->a - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->a - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->a == value ? 1 : 0;
   cpu->pc += (uint8_t)0x3;
 }
@@ -826,7 +831,7 @@ CMP_ABSX_handler(mos6502_t *cpu){
   if ( cpu->a >= value){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->a - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->a - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->a == value ? 1 : 0;
   cpu->pc +=(uint8_t)0x3;
 }
@@ -837,7 +842,7 @@ CMP_ABSY_handler(mos6502_t *cpu){
   if(cpu->a >= value){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->a - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->a - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->a == value ? 1 : 0;
   cpu->pc += (uint8_t)0x3;
 }
@@ -851,7 +856,7 @@ CMP_IDX_IDR_handler(mos6502_t *cpu){
   if( cpu->a >= value){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->a - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->a - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->a == value ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
   
@@ -867,7 +872,7 @@ CMP_IDR_IDX_handler(mos6502_t *cpu){
   if( cpu->a >= effective_value){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->a - effective_value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->a - effective_value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->a == effective_value ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -884,7 +889,7 @@ CPX_handler(mos6502_t *cpu){
   if( cpu->x >= operand){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->x - operand) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->x - operand) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->x == operand ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -895,7 +900,7 @@ CPX_ZP_handler(mos6502_t *cpu){
   if( cpu->x >= value){
     cpu->p.c =1;
   }
-  cpu->p.n = (cpu->x - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->x - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->x == value ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -906,7 +911,7 @@ CPX_ABS_handler(mos6502_t *cpu){
   if ( cpu->x >= value){
     cpu->p.c=1;
   }
-  cpu->p.n = (cpu->x - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->x - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->x == value ? 1 : 0;
   cpu->pc += (uint8_t)0x3;
 }
@@ -917,7 +922,7 @@ CPY_handler(mos6502_t *cpu){
   if( cpu->y >= operand){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->y - operand ) >> 7 ? 1: 0;
+  cpu->p.n = ((cpu->y - operand ) >> 7) &  0x01 ? 1: 0;
   cpu->p.z = cpu->y == operand ? 1 : 0;
 
   cpu->pc += (uint8_t)0x2;
@@ -929,7 +934,7 @@ CPY_ZP_handler(mos6502_t *cpu){
   if( cpu->y >= value){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->y - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->y - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->y == value ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -940,7 +945,7 @@ CPY_ABS_handler(mos6502_t *cpu){
   if(cpu->y >= value){
     cpu->p.c = 1;
   }
-  cpu->p.n = (cpu->y - value) >> 7 ? 1 : 0;
+  cpu->p.n = ((cpu->y - value) >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->y == value ? 1 : 0;
   cpu->pc += (uint8_t)0x3;
 }
@@ -949,7 +954,7 @@ DEC_ZP_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, (cpu->pc)+(uint8_t)+1); // it stores the value in the operand memory location
   uint8_t value = read8(cpu, operand);
   write8(cpu, operand, --value);
-  cpu->p.n = value >> 7 ? 1 : 0;
+  cpu->p.n = (value >> 7) &  0x01 ? 1 : 0;
   cpu->p.z = value == 0 ? 1 : 0;
   cpu->pc +=(uint8_t)0x2;
 }
@@ -958,7 +963,7 @@ DEC_ZPX_handler(mos6502_t *cpu){
   uint8_t operand = read8(cpu, cpu->pc + (uint8_t)+1);
   uint8_t value = read8(cpu, (uint16_t)(operand+cpu->x));
   write8(cpu, operand, --value);
-  cpu->p.n = value >> 7 ? 1 : 0;
+  cpu->p.n = (value >> 7) &  0x01  ? 1 : 0;
   cpu->p.z = value == 0 ? 1 : 0;
   cpu->pc += (uint8_t)0x2;
 }
@@ -967,7 +972,7 @@ DEC_ABS_handler(mos6502_t *cpu){
   uint16_t operand = read16(cpu, cpu->pc+(uint16_t)1);
   uint8_t value = read8(cpu, operand);
   write8(cpu, operand, --value);
-  cpu->p.n = value >> 7 ? 1 : 0;
+  cpu->p.n = (value >> 7) &  0x01  ? 1 : 0;
   cpu->p.z = value == 0 ? 1 : 0;
   cpu->pc += (uint8_t)0x3;
 }
@@ -976,21 +981,21 @@ DEC_ABSX_handler(mos6502_t *cpu){
   uint16_t operand = read16(cpu, cpu->pc +(uint16_t)1);
   uint8_t value = read8(cpu, operand+cpu->x);
   write8(cpu, operand + (uint16_t)cpu->x, --value);
-  cpu->p.n = value >> 7 ? 1 : 0;
+  cpu->p.n = (value >> 7) &  0x01  ? 1 : 0;
   cpu->p.z = value == 0 ? 1 : 0;
   cpu->pc += (uint8_t)0x3;
 }
 void
 DEX_handler(mos6502_t *cpu){
   cpu->x--;
-  cpu->p.n = cpu->x >> 7 ? 1 : 0;
+  cpu->p.n = (cpu->x >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->x == 0 ? 1 : 0;
   cpu->pc += (uint8_t)0x1;
 }
 void
 DEY_handler(mos6502_t *cpu){
   cpu->y--;
-  cpu->p.n = cpu->y >> 7 ? 1 : 0;
+  cpu->p.n = (cpu->y >> 7) & 0x01 ? 1 : 0;
   cpu->p.z = cpu->y == 0 ? 1 : 0;
   cpu->pc += (uint8_t)0x1;
 }

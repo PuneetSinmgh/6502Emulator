@@ -1,106 +1,76 @@
 build/emu/gcc/debug/main.o: emu/main.c /usr/include/stdc-predef.h \
  emu/include/rc.h emu/include/base.h /usr/include/stdio.h \
- /usr/include/bits/libc-header-start.h /usr/include/features.h \
- /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
- /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
  /usr/include/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stddef.h \
  /usr/include/bits/types.h /usr/include/bits/typesizes.h \
- /usr/include/bits/types/__FILE.h /usr/include/bits/types/FILE.h \
- /usr/include/bits/libio.h /usr/include/bits/_G_config.h \
- /usr/include/bits/types/__mbstate_t.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/stdarg.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdarg.h \
  /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
  /usr/include/stdlib.h /usr/include/bits/waitflags.h \
- /usr/include/bits/waitstatus.h /usr/include/bits/floatn.h \
- /usr/include/bits/floatn-common.h /usr/include/sys/types.h \
- /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
- /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \
- /usr/include/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
- /usr/include/bits/byteswap-16.h /usr/include/bits/uintn-identity.h \
- /usr/include/sys/select.h /usr/include/bits/select.h \
- /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
- /usr/include/bits/types/struct_timeval.h \
- /usr/include/bits/types/struct_timespec.h /usr/include/sys/sysmacros.h \
- /usr/include/bits/sysmacros.h /usr/include/bits/pthreadtypes.h \
- /usr/include/bits/thread-shared-types.h \
- /usr/include/bits/pthreadtypes-arch.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/stdbool.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/stdint.h \
- /usr/include/stdint.h /usr/include/bits/wchar.h \
- /usr/include/bits/stdint-uintn.h emu/include/ines.h emu/include/memory.h \
- emu/include/membus.h emu/include/reset_manager.h emu/include/nes/ppu.h \
- emu/include/timekeeper.h emu/include/mos6502/mos6502.h \
- emu/include/shell.h emu/include/fileio.h emu/include/nes/io_reg.h \
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
- /usr/include/SDL2/SDL_config-x86_64.h /usr/include/SDL2/SDL_platform.h \
- /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/string.h /usr/include/bits/types/locale_t.h \
- /usr/include/bits/types/__locale_t.h /usr/include/strings.h \
- /usr/include/wchar.h /usr/include/bits/types/wint_t.h \
- /usr/include/bits/types/mbstate_t.h /usr/include/inttypes.h \
- /usr/include/ctype.h /usr/include/math.h /usr/include/bits/math-vector.h \
- /usr/include/bits/libm-simd-decl-stubs.h \
- /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
- /usr/include/bits/fp-fast.h \
- /usr/include/bits/mathcalls-helper-functions.h \
- /usr/include/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/float.h \
+ /usr/include/bits/byteswap-16.h /usr/include/sys/types.h \
+ /usr/include/time.h /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/bits/time.h \
+ /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdbool.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h emu/include/ines.h \
+ emu/include/memory.h emu/include/membus.h emu/include/reset_manager.h \
+ emu/include/nes/ppu.h emu/include/timekeeper.h \
+ emu/include/mos6502/mos6502.h emu/include/shell.h emu/include/fileio.h \
+ emu/include/nes/io_reg.h /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_config-x86_64.h \
+ /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
+ /usr/include/SDL2/close_code.h /usr/include/string.h \
+ /usr/include/xlocale.h /usr/include/strings.h /usr/include/inttypes.h \
+ /usr/include/ctype.h /usr/include/math.h /usr/include/bits/huge_val.h \
+ /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h \
+ /usr/include/bits/inf.h /usr/include/bits/nan.h \
+ /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/float.h \
  /usr/include/SDL2/SDL_assert.h /usr/include/SDL2/SDL_atomic.h \
  /usr/include/SDL2/SDL_audio.h /usr/include/SDL2/SDL_error.h \
  /usr/include/SDL2/SDL_endian.h /usr/include/SDL2/SDL_mutex.h \
  /usr/include/SDL2/SDL_thread.h /usr/include/SDL2/SDL_rwops.h \
  /usr/include/SDL2/SDL_clipboard.h /usr/include/SDL2/SDL_cpuinfo.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/immintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/mmintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/xmmintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/mm_malloc.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/emmintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/pmmintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/tmmintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/smmintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/popcntintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/wmmintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avxintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx2intrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512fintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512erintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512pfintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512cdintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vlintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512bwintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512dqintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vlbwintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vldqintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512ifmaintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512ifmavlintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vbmiintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vbmivlintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx5124fmapsintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx5124vnniwintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vpopcntdqintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vbmi2intrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vbmi2vlintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vnniintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vnnivlintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vpopcntdqvlintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/avx512bitalgintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/shaintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/lzcntintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/bmiintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/bmi2intrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/fmaintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/f16cintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/rtmintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/xtestintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/cetintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/gfniintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/vaesintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/vpclmulqdqintrin.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/movdirintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/immintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/mmintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/xmmintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/mm_malloc.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/emmintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/pmmintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/tmmintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/smmintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/popcntintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/wmmintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avxintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx2intrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512fintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512erintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512pfintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512cdintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vlintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512bwintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512dqintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vlbwintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vldqintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512ifmaintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512ifmavlintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vbmiintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vbmivlintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/shaintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/lzcntintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/bmiintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/bmi2intrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/fmaintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/f16cintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/rtmintrin.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/xtestintrin.h \
  /usr/include/SDL2/SDL_events.h /usr/include/SDL2/SDL_video.h \
  /usr/include/SDL2/SDL_pixels.h /usr/include/SDL2/SDL_rect.h \
  /usr/include/SDL2/SDL_surface.h /usr/include/SDL2/SDL_blendmode.h \
@@ -115,12 +85,11 @@ build/emu/gcc/debug/main.o: emu/main.c /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/stdnoreturn.h \
- /usr/include/getopt.h /usr/include/bits/getopt_core.h \
- /usr/include/bits/getopt_ext.h /usr/include/unistd.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdnoreturn.h \
+ /usr/include/getopt.h /usr/include/unistd.h \
  /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
- /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
- /usr/include/sys/stat.h /usr/include/bits/stat.h
+ /usr/include/bits/confname.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h
 
 /usr/include/stdc-predef.h:
 
@@ -130,37 +99,29 @@ emu/include/base.h:
 
 /usr/include/stdio.h:
 
-/usr/include/bits/libc-header-start.h:
-
 /usr/include/features.h:
 
 /usr/include/sys/cdefs.h:
 
 /usr/include/bits/wordsize.h:
 
-/usr/include/bits/long-double.h:
-
 /usr/include/gnu/stubs.h:
 
 /usr/include/gnu/stubs-64.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stddef.h:
 
 /usr/include/bits/types.h:
 
 /usr/include/bits/typesizes.h:
 
-/usr/include/bits/types/__FILE.h:
+/usr/include/libio.h:
 
-/usr/include/bits/types/FILE.h:
+/usr/include/_G_config.h:
 
-/usr/include/bits/libio.h:
+/usr/include/wchar.h:
 
-/usr/include/bits/_G_config.h:
-
-/usr/include/bits/types/__mbstate_t.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/stdarg.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdarg.h:
 
 /usr/include/bits/stdio_lim.h:
 
@@ -172,22 +133,6 @@ emu/include/base.h:
 
 /usr/include/bits/waitstatus.h:
 
-/usr/include/bits/floatn.h:
-
-/usr/include/bits/floatn-common.h:
-
-/usr/include/sys/types.h:
-
-/usr/include/bits/types/clock_t.h:
-
-/usr/include/bits/types/clockid_t.h:
-
-/usr/include/bits/types/time_t.h:
-
-/usr/include/bits/types/timer_t.h:
-
-/usr/include/bits/stdint-intn.h:
-
 /usr/include/endian.h:
 
 /usr/include/bits/endian.h:
@@ -196,43 +141,33 @@ emu/include/base.h:
 
 /usr/include/bits/byteswap-16.h:
 
-/usr/include/bits/uintn-identity.h:
+/usr/include/sys/types.h:
+
+/usr/include/time.h:
 
 /usr/include/sys/select.h:
 
 /usr/include/bits/select.h:
 
-/usr/include/bits/types/sigset_t.h:
+/usr/include/bits/sigset.h:
 
-/usr/include/bits/types/__sigset_t.h:
-
-/usr/include/bits/types/struct_timeval.h:
-
-/usr/include/bits/types/struct_timespec.h:
+/usr/include/bits/time.h:
 
 /usr/include/sys/sysmacros.h:
 
-/usr/include/bits/sysmacros.h:
-
 /usr/include/bits/pthreadtypes.h:
-
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/bits/pthreadtypes-arch.h:
 
 /usr/include/alloca.h:
 
 /usr/include/bits/stdlib-float.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/stdbool.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdbool.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/stdint.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdint.h:
 
 /usr/include/stdint.h:
 
 /usr/include/bits/wchar.h:
-
-/usr/include/bits/stdint-uintn.h:
 
 emu/include/ines.h:
 
@@ -272,17 +207,9 @@ emu/include/nes/io_reg.h:
 
 /usr/include/string.h:
 
-/usr/include/bits/types/locale_t.h:
-
-/usr/include/bits/types/__locale_t.h:
+/usr/include/xlocale.h:
 
 /usr/include/strings.h:
-
-/usr/include/wchar.h:
-
-/usr/include/bits/types/wint_t.h:
-
-/usr/include/bits/types/mbstate_t.h:
 
 /usr/include/inttypes.h:
 
@@ -290,21 +217,21 @@ emu/include/nes/io_reg.h:
 
 /usr/include/math.h:
 
-/usr/include/bits/math-vector.h:
+/usr/include/bits/huge_val.h:
 
-/usr/include/bits/libm-simd-decl-stubs.h:
+/usr/include/bits/huge_valf.h:
 
-/usr/include/bits/flt-eval-method.h:
+/usr/include/bits/huge_vall.h:
 
-/usr/include/bits/fp-logb.h:
+/usr/include/bits/inf.h:
 
-/usr/include/bits/fp-fast.h:
+/usr/include/bits/nan.h:
 
-/usr/include/bits/mathcalls-helper-functions.h:
+/usr/include/bits/mathdef.h:
 
 /usr/include/bits/mathcalls.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/float.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/float.h:
 
 /usr/include/SDL2/SDL_assert.h:
 
@@ -326,99 +253,71 @@ emu/include/nes/io_reg.h:
 
 /usr/include/SDL2/SDL_cpuinfo.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/immintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/immintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/mmintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/mmintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/xmmintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/xmmintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/mm_malloc.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/mm_malloc.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/emmintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/emmintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/pmmintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/pmmintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/tmmintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/tmmintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/smmintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/smmintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/popcntintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/popcntintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/wmmintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/wmmintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avxintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avxintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx2intrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx2intrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512fintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512fintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512erintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512erintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512pfintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512pfintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512cdintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512cdintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vlintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vlintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512bwintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512bwintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512dqintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512dqintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vlbwintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vlbwintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vldqintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vldqintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512ifmaintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512ifmaintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512ifmavlintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512ifmavlintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vbmiintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vbmiintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vbmivlintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/avx512vbmivlintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx5124fmapsintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/shaintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx5124vnniwintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/lzcntintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vpopcntdqintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/bmiintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vbmi2intrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/bmi2intrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vbmi2vlintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/fmaintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vnniintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/f16cintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vnnivlintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/rtmintrin.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512vpopcntdqvlintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/avx512bitalgintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/shaintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/lzcntintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/bmiintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/bmi2intrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/fmaintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/f16cintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/rtmintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/xtestintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/cetintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/gfniintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/vaesintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/vpclmulqdqintrin.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/movdirintrin.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/xtestintrin.h:
 
 /usr/include/SDL2/SDL_events.h:
 
@@ -474,13 +373,9 @@ emu/include/nes/io_reg.h:
 
 /usr/include/SDL2/SDL_version.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/stdnoreturn.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdnoreturn.h:
 
 /usr/include/getopt.h:
-
-/usr/include/bits/getopt_core.h:
-
-/usr/include/bits/getopt_ext.h:
 
 /usr/include/unistd.h:
 
@@ -489,8 +384,6 @@ emu/include/nes/io_reg.h:
 /usr/include/bits/environments.h:
 
 /usr/include/bits/confname.h:
-
-/usr/include/bits/getopt_posix.h:
 
 /usr/include/sys/stat.h:
 

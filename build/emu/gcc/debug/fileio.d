@@ -1,38 +1,26 @@
 build/emu/gcc/debug/fileio.o: emu/fileio.c /usr/include/stdc-predef.h \
  emu/include/fileio.h emu/include/base.h /usr/include/stdio.h \
- /usr/include/bits/libc-header-start.h /usr/include/features.h \
- /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
- /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
  /usr/include/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stddef.h \
  /usr/include/bits/types.h /usr/include/bits/typesizes.h \
- /usr/include/bits/types/__FILE.h /usr/include/bits/types/FILE.h \
- /usr/include/bits/libio.h /usr/include/bits/_G_config.h \
- /usr/include/bits/types/__mbstate_t.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/stdarg.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdarg.h \
  /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
  /usr/include/stdlib.h /usr/include/bits/waitflags.h \
- /usr/include/bits/waitstatus.h /usr/include/bits/floatn.h \
- /usr/include/bits/floatn-common.h /usr/include/sys/types.h \
- /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
- /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \
- /usr/include/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/bits/waitstatus.h /usr/include/endian.h \
  /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
- /usr/include/bits/byteswap-16.h /usr/include/bits/uintn-identity.h \
- /usr/include/sys/select.h /usr/include/bits/select.h \
- /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
- /usr/include/bits/types/struct_timeval.h \
- /usr/include/bits/types/struct_timespec.h /usr/include/sys/sysmacros.h \
- /usr/include/bits/sysmacros.h /usr/include/bits/pthreadtypes.h \
- /usr/include/bits/thread-shared-types.h \
- /usr/include/bits/pthreadtypes-arch.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h \
- /usr/lib/gcc/x86_64-redhat-linux/8/include/stdbool.h \
+ /usr/include/bits/byteswap-16.h /usr/include/sys/types.h \
+ /usr/include/time.h /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/bits/time.h \
+ /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
+ /opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdbool.h \
  /usr/include/errno.h /usr/include/bits/errno.h \
  /usr/include/linux/errno.h /usr/include/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/string.h /usr/include/bits/types/locale_t.h \
- /usr/include/bits/types/__locale_t.h /usr/include/strings.h
+ /usr/include/string.h /usr/include/xlocale.h
 
 /usr/include/stdc-predef.h:
 
@@ -42,37 +30,29 @@ emu/include/base.h:
 
 /usr/include/stdio.h:
 
-/usr/include/bits/libc-header-start.h:
-
 /usr/include/features.h:
 
 /usr/include/sys/cdefs.h:
 
 /usr/include/bits/wordsize.h:
 
-/usr/include/bits/long-double.h:
-
 /usr/include/gnu/stubs.h:
 
 /usr/include/gnu/stubs-64.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/stddef.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stddef.h:
 
 /usr/include/bits/types.h:
 
 /usr/include/bits/typesizes.h:
 
-/usr/include/bits/types/__FILE.h:
+/usr/include/libio.h:
 
-/usr/include/bits/types/FILE.h:
+/usr/include/_G_config.h:
 
-/usr/include/bits/libio.h:
+/usr/include/wchar.h:
 
-/usr/include/bits/_G_config.h:
-
-/usr/include/bits/types/__mbstate_t.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/8/include/stdarg.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdarg.h:
 
 /usr/include/bits/stdio_lim.h:
 
@@ -84,22 +64,6 @@ emu/include/base.h:
 
 /usr/include/bits/waitstatus.h:
 
-/usr/include/bits/floatn.h:
-
-/usr/include/bits/floatn-common.h:
-
-/usr/include/sys/types.h:
-
-/usr/include/bits/types/clock_t.h:
-
-/usr/include/bits/types/clockid_t.h:
-
-/usr/include/bits/types/time_t.h:
-
-/usr/include/bits/types/timer_t.h:
-
-/usr/include/bits/stdint-intn.h:
-
 /usr/include/endian.h:
 
 /usr/include/bits/endian.h:
@@ -108,35 +72,27 @@ emu/include/base.h:
 
 /usr/include/bits/byteswap-16.h:
 
-/usr/include/bits/uintn-identity.h:
+/usr/include/sys/types.h:
+
+/usr/include/time.h:
 
 /usr/include/sys/select.h:
 
 /usr/include/bits/select.h:
 
-/usr/include/bits/types/sigset_t.h:
+/usr/include/bits/sigset.h:
 
-/usr/include/bits/types/__sigset_t.h:
-
-/usr/include/bits/types/struct_timeval.h:
-
-/usr/include/bits/types/struct_timespec.h:
+/usr/include/bits/time.h:
 
 /usr/include/sys/sysmacros.h:
 
-/usr/include/bits/sysmacros.h:
-
 /usr/include/bits/pthreadtypes.h:
-
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/bits/pthreadtypes-arch.h:
 
 /usr/include/alloca.h:
 
 /usr/include/bits/stdlib-float.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/8/include/stdbool.h:
+/opt/rh/devtoolset-6/root/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include/stdbool.h:
 
 /usr/include/errno.h:
 
@@ -152,8 +108,4 @@ emu/include/base.h:
 
 /usr/include/string.h:
 
-/usr/include/bits/types/locale_t.h:
-
-/usr/include/bits/types/__locale_t.h:
-
-/usr/include/strings.h:
+/usr/include/xlocale.h:
