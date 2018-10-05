@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CS 595 Virtual Machines : 6502v Emulator
 ## Jake, Malip, Puneet
 
@@ -11,3 +12,7 @@ Instead of the conventional approach, Decode and Dispatch, this project is requi
    - How should we know which bit stands for which flag?
      - Is there any resource?
    - The instruction sets have specific instr length. Depending on its length, program counter varies.
+=======
+# CS595Project 1: Gyucheon, Milap, Puneet
+
+>>>>>>> 39815bf24c6d8b6b97707fbc7b9620d05d7a44d3

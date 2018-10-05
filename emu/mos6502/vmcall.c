@@ -194,6 +194,10 @@ mos6502_step_result_t
 handle_vmcall (decode_info_t * info)
 {
 	uint8_t call_num = membus_read(info->cpu->bus, info->addr);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 39815bf24c6d8b6b97707fbc7b9620d05d7a44d3
 	switch (call_num) {
 	case VMCALL_ARGS:
 		return handle_args(info->cpu);

@@ -164,8 +164,11 @@ void SBC_IDX_IDR_handler(mos6502_t *);
 void SBC_IDR_IDX_handler(mos6502_t *);
 void RMB0_handler(mos6502_t *);
 
+<<<<<<< HEAD
 /* END PROTOTYPE */
 
+=======
+>>>>>>> 39815bf24c6d8b6b97707fbc7b9620d05d7a44d3
 static const uint8_t instr_cycles[256] = {
 	7, 6, 2, 8, 3, 3, 5, 5, 3, 2, 2, 2, 4, 4, 6, 6,
 	2, 5, 2, 8, 4, 4, 6, 6, 2, 4, 2, 7, 4, 4, 7, 7,
@@ -184,6 +187,7 @@ static const uint8_t instr_cycles[256] = {
 	2, 6, 2, 8, 3, 3, 5, 5, 2, 2, 2, 2, 4, 4, 6, 6,
 	2, 5, 2, 8, 4, 4, 6, 6, 2, 4, 2, 7, 4, 4, 7, 7,
 };
+<<<<<<< HEAD
 void (*lookup[16][16])(mos6502_t *cpu) =
   {
    {BRK_handler, ORA_IDX_IDR_handler, NULL, NULL, NULL, ORA_ZP_handler, ASL_ZP_handler, NULL, PHP_handler, ORA_handler, ASL_handler, NULL, NULL, ORA_ABS_handler, ASL_ABS_handler, NULL},
@@ -204,12 +208,18 @@ void (*lookup[16][16])(mos6502_t *cpu) =
    {BEQ_handler, SBC_IDX_IDR_handler, NULL, NULL, NULL, SBC_ZPX_handler, INC_ZPX_handler, NULL, SED_handler, SBC_ABSY_handler, NULL, NULL, NULL, SBC_ABSX_handler, INC_ABSX_handler, NULL}
   }
   ;
+=======
+>>>>>>> 39815bf24c6d8b6b97707fbc7b9620d05d7a44d3
 
 uint8_t
 convert(uint8_t operand){
   return operand >> 7 ? (~operand)+1 : operand;
 }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 39815bf24c6d8b6b97707fbc7b9620d05d7a44d3
 static inline uint8_t
 read8 (mos6502_t * cpu, uint16_t addr)
 {
@@ -247,6 +257,7 @@ buggy_read16 (mos6502_t * cpu, uint16_t addr)
 size_t
 mos6502_instr_repr (mos6502_t * cpu, uint16_t addr, char * buffer, size_t buflen)
 {
+<<<<<<< HEAD
   char *instr_table[16][16] =
     { {"BRK","ORA X, ind","","","","ORA zpg","ASL zpg","","PHP","ORA","ASL_ABS","","","ORA abs","ASL abs",""},
       {"BPL","ORA ind, Y","","","","ORA zpg, X","ASL zpg, X","","CLC","ORA abs, Y","","","","ORA abs, X","ASL abs, X",""},
@@ -281,12 +292,28 @@ mos6502_step (mos6502_t * cpu){
   uint8_t lo = opcode & 0x0F;
   
   switch(opcode){
+=======
+	// FILL ME IN
+
+	// Delete this line when you're done
+	buffer[0] = 0;
+	return 0;
+}
+
+mos6502_step_result_t
+mos6502_step (mos6502_t * cpu)
+{
+	uint8_t opcode = read8(cpu, cpu->pc);
+	decode_info_t decode_info;
+   	switch(opcode){
+>>>>>>> 39815bf24c6d8b6b97707fbc7b9620d05d7a44d3
   case 0x80:
     decode_info.cpu = cpu;
     decode_info.opcode = opcode;
     decode_info.addr = cpu->pc+1;
     handle_vmcall(&decode_info);
     break;
+<<<<<<< HEAD
   default :
     (*lookup[hi][lo])(cpu);
     break;
@@ -1982,4 +2009,526 @@ SBC_IDR_IDX_handler(mos6502_t *cpu){
  cpu->p.n = (result >> 7) ? 1: 0;
  cpu->p.z = (result == 0) ? 1: 0;
  cpu->pc += (uint8_t)0x02;
+=======
+  case 0x40:
+    RTI_handler(cpu);
+    break;
+  case 0x60:
+    RTS_handler(cpu);
+    break;
+    /* ADC Family */
+  case 0x69:
+    ADC_handler(cpu);
+    break;
+  case 0x65:
+    ADC_ZP_handler(cpu);
+  break;
+  case 0x75:
+    ADC_ZPX_handler(cpu);
+    break;
+  case 0x6D:
+    ADC_ABS_handler(cpu);
+    break;
+  case 0x7D:
+    ADC_ABSX_handler(cpu);
+    break;
+  case 0x79:
+    ADC_ABSY_handler(cpu);
+    break;
+  case 0x61:
+    ADC_IDX_IDR_handler(cpu);
+    break;
+  case 0x71:
+    ADC_IDR_IDX_handler(cpu);
+    break;
+  /* AND Family */
+  case 0x29:
+    AND_handler(cpu);
+    break;
+  case 0x25:
+    AND_ZP_handler(cpu);
+    break;
+  case 0x35:
+    AND_ZPX_handler(cpu);
+    break;
+  case 0x2D:
+    AND_ABS_handler(cpu);
+    break;
+  case 0x3D:
+    AND_ABSX_handler(cpu);
+    break;
+  case 0x39:
+    AND_ABSY_handler(cpu);
+    break;
+  case 0x21:
+    AND_IDX_IDR_handler(cpu);
+    break;
+  case 0x31:
+    AND_IDR_IDX_handler(cpu);
+    break;
+    /* ASL Family */
+  case 0x0A:
+    ASL_handler(cpu);
+    break;
+  case 0x06:
+    ASL_ZP_handler(cpu);
+    break;
+  case 0x16:
+    ASL_ZPX_handler(cpu);
+    break;
+  case 0x0E:
+    ASL_ABS_handler(cpu);
+    break;
+  case 0x1E:
+    ASL_ABSX_handler(cpu);
+    break;
+    /* Branch Family */
+  case 0x10:
+    BPL_handler(cpu);
+    break;
+  case 0x30:
+    BMI_handler(cpu);
+    break;
+  case 0x50:
+    BVC_handler(cpu);
+    break;
+  case 0x70:
+    BVS_handler(cpu);
+    break;
+  case 0x90:
+    BCC_handler(cpu);
+    break;
+  case 0xB0:
+    BCS_handler(cpu);
+    break;
+  case 0xD0:
+    BNE_handler(cpu);
+    break;
+  case 0xF0:
+    BEQ_handler(cpu);
+    break;
+    /* BIT Family */
+  case 0x24:
+    BIT_handler(cpu);
+    break;
+  case 0x2C:
+    BIT_ABS_handler(cpu);
+    break;
+  case 0x00:
+    BRK_handler(cpu);
+    break;
+    /* CMP Family */
+  case 0xC9:
+    CMP_handler(cpu);
+    break;
+  case 0xC5:
+    CMP_ZP_handler(cpu);
+    break;
+  case 0xD5:
+    CMP_ZPX_handler(cpu);
+    break;
+  case 0xCD:
+    CMP_ABS_handler(cpu);
+    break;
+  case 0xDD:
+    CMP_ABSX_handler(cpu);
+    break;
+  case 0xD9:
+    CMP_ABSY_handler(cpu);
+    break;
+  case 0xC1:
+    CMP_IDX_IDR_handler(cpu);
+    break;
+  case 0xD1:
+    CMP_IDR_IDX_handler(cpu);
+    break;
+    /* CPX Family */
+  case 0xE0:
+    CPX_handler(cpu);
+    break;
+  case 0xE4:
+    CPX_ZP_handler(cpu);
+    break;
+  case 0xEC:
+    CPX_ABS_handler(cpu);
+    break;
+    /* CPY Family */
+  case 0xC0:
+    CPY_handler(cpu);
+    break;
+  case 0xC4:
+    CPY_ZP_handler(cpu);
+    break;
+  case 0xCC:
+    CPY_ABS_handler(cpu);
+    break;
+    /* DEC Family */
+  case 0xC6:
+    DEC_ZP_handler(cpu);
+    break;
+  case 0xD6:
+    DEC_ZPX_handler(cpu);
+    break;
+  case 0xCE:
+    DEC_ABS_handler(cpu);
+    break;
+  case 0xDE:
+    DEC_ABSX_handler(cpu);
+    break;
+    /* Register Instructions */
+  case 0xCA:
+    DEX_handler(cpu);
+    break;
+  case 0x88:
+    DEY_handler(cpu);
+    break;
+  case 0xE8:
+    INX_handler(cpu);
+    break;
+  case 0xC8:
+    INY_handler(cpu);
+    break;
+  case 0xAA:
+    TAX_handler(cpu);
+    break;
+  case 0x8A:
+    TXA_handler(cpu);
+    break;
+  case 0xA8:
+    TAY_handler(cpu);
+    break;
+  case 0x98:
+    TYA_handler(cpu);
+    break;
+    /* EOR Family */
+  case 0x49:
+    EOR_handler(cpu);
+    break;
+  case 0x45:
+    EOR_ZP_handler(cpu);
+    break;
+  case 0x55:
+    EOR_ZPX_handler(cpu);
+    break;
+  case 0x4D:
+    EOR_ABS_handler(cpu);
+    break;
+  case 0x5D:
+    EOR_ABSX_handler(cpu);
+    break;
+  case 0x59:
+    EOR_ABSY_handler(cpu);
+    break;
+  case 0x41:
+    EOR_IDX_IDR_handler(cpu);
+    break;
+  case 0x51:
+    EOR_IDR_IDX_handler(cpu);
+    break;
+    /* Flag Instruction */
+  case 0x18:
+    CLC_handler(cpu);
+    break;
+  case 0x38:
+    SEC_handler(cpu);
+    break;
+  case 0x58:
+    CLI_handler(cpu);
+    break;
+  case 0x78:
+    SEI_handler(cpu);
+    break;
+  case 0xB8:
+    CLV_handler(cpu);
+    break;
+  case 0xD8:
+    CLD_handler(cpu);
+    break;
+  case 0xF8:
+    SED_handler(cpu);
+    break;     
+    /* INC Family */
+  case 0xE6:
+    INC_ZP_handler(cpu);
+    break;
+  case 0xF6:
+    INC_ZPX_handler(cpu);
+    break;
+  case 0xEE:
+    INC_ABS_handler(cpu);
+    break;
+  case 0xFE:
+    INC_ABSX_handler(cpu);
+    break;
+    /* JMP Family */
+  case 0x4C:
+    JMP_ABS_handler(cpu);
+    break;
+  case 0x6C:
+    JMP_IDR_handler(cpu);
+    break;
+    /* JSR */
+  case 0x20:
+    JSR_ABS_handler(cpu);
+    break;
+    /* Stack Instructions */
+  case 0x9A:
+    TXS_handler(cpu);
+    break;
+  case 0xBA:
+    TSX_handler(cpu);
+    break;
+  case 0x48:
+    PHA_handler(cpu);
+    break;
+  case 0x68:
+    PLA_handler(cpu);
+    break;
+  case 0x08:
+    PHP_handler(cpu);
+    break;
+  case 0x28:
+    PLP_handler(cpu);
+    break;
+    // LDA Family
+  case 0xA9:
+    LDA_handler(cpu);
+    break;
+  case 0xA5:
+    LDA_ZP_handler(cpu);
+    break;
+  case 0xB5:
+    LDA_ZPX_handler(cpu);
+    break;
+  case 0xAD:
+    LDA_ABS_handler(cpu);
+    break;
+  case 0xBD:
+    LDA_ABSX_handler(cpu);
+    break;
+  case 0xB9:
+    LDA_ABSY_handler(cpu);
+    break;
+  case 0xA1:
+    LDA_IDX_IDR_handler(cpu);
+    break;
+  case 0xB1:
+    LDA_IDR_IDX_handler(cpu);
+    break;
+  case 0xEA:
+    NOP_handler(cpu);
+    break;
+    // LDX Family
+  case 0xA2:
+    LDX_handler(cpu);
+    break;
+  case 0xA6:
+    LDX_ZP_handler(cpu);
+    break;
+  case 0xB6:
+    LDX_ZPY_handler(cpu);
+    break;
+  case 0xAE:
+    LDX_ABS_handler(cpu);
+    break;
+  case 0xBE:
+    LDX_ABSY_handler(cpu);
+    break;
+    // ORA Family
+  case 0x09:
+    ORA_handler(cpu);
+    break;
+  case 0x05:
+    ORA_ZP_handler(cpu);
+    break;
+  case 0x15:
+    ORA_ZPX_handler(cpu);
+    break;
+  case 0x0D:
+    ORA_ABS_handler(cpu);
+    break;
+  case 0x1D:
+    ORA_ABSX_handler(cpu);
+    break;
+  case 0x19:
+    ORA_ABSY_handler(cpu);
+    break;
+  case 0x01:
+    ORA_IDX_IDR_handler(cpu);
+    break;
+  case 0x11:
+    ORA_IDR_IDX_handler(cpu);
+    break;
+    // STA Family 
+  case 0x85:
+    STA_ZP_handler(cpu);
+    break;
+  case 0x95:
+    STA_ZPX_handler(cpu);
+    break;
+  case 0x8D:
+    STA_ABS_handler(cpu);
+    break;
+  case 0x9D:
+    STA_ABSX_handler(cpu);
+    break;
+  case 0x99:
+    STA_ABSY_handler(cpu);
+    break;
+  case 0x81:
+    STA_IDX_IDR_handler(cpu);
+    break;
+  case 0x91:
+    STA_IDR_IDX_handler(cpu);
+    break;
+    // STX Family 
+  case 0x86:
+    STX_ZP_handler(cpu);
+    break;
+  case 0x96:
+    STX_ZPY_handler(cpu);
+    break;
+  case 0x8E:
+    STX_ABS_handler(cpu);
+    break;
+    // STY Family 
+  case 0x84:
+    STY_ZP_handler(cpu);
+    break;
+  case 0x94:
+    STY_ZPX_handler(cpu);
+    break;
+  case 0x8C:
+    STY_ABS_handler(cpu);
+    break;
+    // LDY Family
+  case 0xA0:
+    LDY_handler(cpu);
+    break;
+  case 0xA4:
+    LDY_ZP_handler(cpu);
+    break;
+  case 0xB4:
+    LDY_ZPX_handler(cpu);
+    break;
+  case 0xAC:
+    LDY_ABS_handler(cpu);
+    break;
+  case 0xBC:
+    LDY_ABSX_handler(cpu);
+    break;
+    // LSR Family
+  case 0x4A:
+    LSR_handler(cpu);
+    break;
+  case 0x46:
+    LSR_ZP_handler(cpu);
+    break;
+  case 0x56:
+    LSR_ZPX_handler(cpu);
+    break;
+  case 0x4E:
+    LSR_ABS_handler(cpu);
+    break;
+  case 0x5E:
+    LSR_ABSX_handler(cpu);
+    break;
+    // ROL Family
+  case 0x2A:
+    ROL_handler(cpu);
+    break;
+  case 0x26:
+    ROL_ZP_handler(cpu);
+    break;
+  case 0x36:
+    ROL_ZPX_handler(cpu);
+    break;
+  case 0x2E:
+    ROL_ABS_handler(cpu);
+    break;
+  case 0x3E:
+    ROL_ABSX_handler(cpu);
+    break;
+    // ROR Family
+  case 0x6A:
+    ROR_handler(cpu);
+    break;
+  case 0x66:
+    ROR_ZP_handler(cpu);
+    break;
+  case 0x76:
+    ROR_ZPX_handler(cpu);
+    break;
+  case 0x6E:
+    ROR_ABS_handler(cpu);
+    break;
+  case 0x7E:
+    ROR_ABSX_handler(cpu);
+    break;
+    // SBC Family
+  case 0xE9:
+    SBC_handler(cpu);
+    break;
+  case 0xE5:
+    SBC_ZP_handler(cpu);
+    break;
+  case 0xF5:
+    SBC_ZPX_handler(cpu);
+    break;
+  case 0xED:
+    SBC_ABS_handler(cpu);
+    break;
+  case 0x02:
+    NOP_handler(cpu);
+    break;
+  case 0x17:
+    NOP_handler(cpu);
+    break;
+  default:
+    printf("Illegal Opcode %x, quit + PC at->%x  ",opcode,cpu->pc);
+    break;
+  }
+	mos6502_advance_clk(cpu, instr_cycles[opcode]);
+	return MOS6502_STEP_RESULT_SUCCESS;
+}
+
+void
+CLD_handler(mos6502_t *cpu){
+  printf("CLD handler\n");
+  cpu->p.d = 0;
+  printf("%d\n", cpu->p.d);
+  cpu->pc = cpu->pc + (uint16_t)1;
+}
+
+void
+LDX_handler(mos6502_t *cpu){
+  printf("LDX handler\n");
+  printf("operand : %x\n", read16(cpu, cpu->pc));
+  cpu->pc = cpu->pc + (uint16_t)2;
+}
+
+void
+ LDA_handler(mos6502_t *cpu){
+   printf("LDA handler\n");
+   // uint8_t operand = (0x00FF) && read16(cpu, cpu->pc);
+  printf("operand : %x\n", read16(cpu, cpu->pc));
+   // cpu->a = value;// How to figure out the value;
+  cpu->pc = cpu->pc + (uint16_t)2;
+ }
+
+void
+ TXS_handler(mos6502_t *cpu){
+   printf("TXS handler\n");
+   cpu->sp = cpu->x;
+   printf("X register : %x , A register : %x Y register : %x\n", cpu->x, cpu->a, cpu->y);
+   cpu->pc = cpu->pc + (uint8_t)1;
+}
+
+void
+ STA_handler(mos6502_t *cpu){
+   printf("STA handler\n");
+   // memory = cpu->a;// How to figure out the memory;
+   printf("operand : %x\n", read16(cpu, cpu->pc));
+   cpu->pc = cpu->pc + (uint16_t)2;
+>>>>>>> 39815bf24c6d8b6b97707fbc7b9620d05d7a44d3
 }
